@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using TORRES_backend.Models;
-
+using System.Web;
 namespace TORRES_backend.Controllers
 {
     [RoutePrefix("api/administrator")]
@@ -82,20 +82,67 @@ namespace TORRES_backend.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        // POST: api/adminusers
-        [ResponseType(typeof(adminuser))]
-        public IHttpActionResult Postadminuser(adminuser adminuser)
+        class adminClass
         {
-            if (!ModelState.IsValid)
+            public string firstname { get; set; }
+            public string lastname { get; set; }
+            public string email { get; set; }
+            public string password { get; set; }
+            public char istype { get; set; }
+            public char isverifier { get; set; }
+            public DateTime createdat { get; set; }
+        }
+        class Response
+        {
+            public string message { get; set; }
+        }
+        Response resp = new Response();
+        APISecurity apis = new APISecurity();
+        adminClass admin = new adminClass();
+        // POST: api/adminusers
+        [Route("admin-store-data"), HttpPost]
+        public IHttpActionResult Postadminuser()
+        {
+            try
             {
-                return BadRequest(ModelState);
+                var http = HttpContext.Current.Request;
+                admin.firstname = http.Form["firstname"];
+                admin.lastname = http.Form["lastname"];
+                admin.email = http.Form["email"];
+                admin.password = apis.Encrypt(http.Form["password"]);
+                admin.istype = Convert.ToChar("1");
+                admin.isverifier = Convert.ToChar("0");
+                admin.createdat = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy/MM/dd h:m:s"));
+                if(string.IsNullOrEmpty(admin.firstname) || string.IsNullOrEmpty(admin.lastname) || string.IsNullOrEmpty(admin.email) 
+                    || string.IsNullOrEmpty(admin.password))
+                {
+                    resp.message = "empty";
+                    return Ok(resp);
+                }
+                else
+                {
+                    using (db)
+                    {
+                        adminuser useradmin = new adminuser();
+                        useradmin.firstname = admin.firstname;
+                        useradmin.lastname = admin.lastname;
+                        useradmin.email = admin.email;
+                        useradmin.password = admin.password;
+                        useradmin.is_type = Convert.ToString(admin.istype);
+                        useradmin.is_verified = Convert.ToString(admin.isverifier);
+                        useradmin.createdAt = admin.createdat;
+                        db.adminusers.Add(useradmin);
+                        db.SaveChanges();
+                        resp.message = "success";
+                        return Ok(resp);
+                    }
+                }
             }
+            catch (Exception)
+            {
 
-            db.adminusers.Add(adminuser);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = adminuser.adminID }, adminuser);
+                throw;
+            }
         }
 
         // DELETE: api/adminusers/5

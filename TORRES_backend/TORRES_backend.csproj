@@ -173,6 +173,7 @@
     <Compile Include="Models\adminuser.cs">
       <DependentUpon>torresbackend.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\credentialsauth.cs" />
     <Compile Include="Models\torresbackend.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
