@@ -26,5 +26,7 @@ namespace TORRES_backend.Models
         }
     
         public virtual DbSet<adminuser> adminusers { get; set; }
+        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<class_code_tb> class_code_tb { get; set; }
     }
 }

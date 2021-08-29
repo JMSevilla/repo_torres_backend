@@ -15,5 +15,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="torresfullstackdbModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="is_archive" ColumnName="is_archive" />
+          <ScalarProperty Name="is_google_verified" ColumnName="is_google_verified" />
+          <ScalarProperty Name="is_token_verified" ColumnName="is_token_verified" />
+          <ScalarProperty Name="is_activate" ColumnName="is_activate" />
+          <ScalarProperty Name="is_type" ColumnName="is_type" />
+          <ScalarProperty Name="is_verified" ColumnName="is_verified" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="municipality" ColumnName="municipality" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="contactnum" ColumnName="contactnum" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class_code_tb">
+      <EntityTypeMapping TypeName="torresfullstackdbModel.class_code_tb">
+        <MappingFragment StoreEntitySet="class_code_tb">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="classcode" ColumnName="classcode" />
+          <ScalarProperty Name="classcodeId" ColumnName="classcodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

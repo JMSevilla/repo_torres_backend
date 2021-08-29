@@ -13,7 +13,45 @@
     <Property Name="is_verified" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
   </EntityType>
+  <EntityType Name="class_code_tb">
+    <Key>
+      <PropertyRef Name="classcodeId" />
+    </Key>
+    <Property Name="classcodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classcode" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="is_lock" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="100" />
+    <Property Name="birthdate" Type="datetime" />
+    <Property Name="age" Type="int" />
+    <Property Name="gender" Type="char" MaxLength="1" />
+    <Property Name="province" Type="varchar" MaxLength="100" />
+    <Property Name="municipality" Type="varchar" MaxLength="100" />
+    <Property Name="zip_code" Type="varchar" MaxLength="100" />
+    <Property Name="address" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar(max)" />
+    <Property Name="image_url" Type="varchar(max)" />
+    <Property Name="is_verified" Type="char" MaxLength="1" />
+    <Property Name="is_type" Type="char" MaxLength="1" />
+    <Property Name="is_activate" Type="char" MaxLength="1" />
+    <Property Name="is_token_verified" Type="char" MaxLength="1" />
+    <Property Name="is_google_verified" Type="char" MaxLength="1" />
+    <Property Name="is_archive" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="contactnum" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityContainer Name="torresfullstackdbModelStoreContainer">
     <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
