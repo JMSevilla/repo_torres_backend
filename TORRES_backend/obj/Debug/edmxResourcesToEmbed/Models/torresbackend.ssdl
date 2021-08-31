@@ -12,6 +12,7 @@
     <Property Name="is_type" Type="char" MaxLength="1" />
     <Property Name="is_verified" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
+    <Property Name="istoken" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="class_code_tb">
     <Key>
@@ -40,14 +41,13 @@
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="password" Type="varchar(max)" />
     <Property Name="image_url" Type="varchar(max)" />
-    <Property Name="is_verified" Type="char" MaxLength="1" />
     <Property Name="is_type" Type="char" MaxLength="1" />
     <Property Name="is_activate" Type="char" MaxLength="1" />
     <Property Name="is_token_verified" Type="char" MaxLength="1" />
-    <Property Name="is_google_verified" Type="char" MaxLength="1" />
     <Property Name="is_archive" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
     <Property Name="contactnum" Type="varchar" MaxLength="100" />
+    <Property Name="istoken" Type="varchar(max)" />
   </EntityType>
   <EntityContainer Name="torresfullstackdbModelStoreContainer">
     <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />

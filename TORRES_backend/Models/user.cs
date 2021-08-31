@@ -20,7 +20,6 @@ namespace TORRES_backend.Models
         public Nullable<System.DateTime> birthdate { get; set; }
         public Nullable<int> age { get; set; }
         public string gender { get; set; }
-        public string contactnum { get; set; }
         public string province { get; set; }
         public string municipality { get; set; }
         public string zip_code { get; set; }
@@ -28,12 +27,12 @@ namespace TORRES_backend.Models
         public string email { get; set; }
         public string password { get; set; }
         public string image_url { get; set; }
-        public string is_verified { get; set; }
         public string is_type { get; set; }
         public string is_activate { get; set; }
         public string is_token_verified { get; set; }
-        public string is_google_verified { get; set; }
         public string is_archive { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }
+        public string contactnum { get; set; }
+        public string istoken { get; set; }
     }
 }

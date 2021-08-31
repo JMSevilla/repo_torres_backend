@@ -17,6 +17,7 @@
           <Property Name="is_type" Type="char" MaxLength="1" />
           <Property Name="is_verified" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
+          <Property Name="istoken" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="class_code_tb">
           <Key>
@@ -45,14 +46,13 @@
           <Property Name="email" Type="varchar" MaxLength="255" />
           <Property Name="password" Type="varchar(max)" />
           <Property Name="image_url" Type="varchar(max)" />
-          <Property Name="is_verified" Type="char" MaxLength="1" />
           <Property Name="is_type" Type="char" MaxLength="1" />
           <Property Name="is_activate" Type="char" MaxLength="1" />
           <Property Name="is_token_verified" Type="char" MaxLength="1" />
-          <Property Name="is_google_verified" Type="char" MaxLength="1" />
           <Property Name="is_archive" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
           <Property Name="contactnum" Type="varchar" MaxLength="100" />
+          <Property Name="istoken" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="torresfullstackdbModelStoreContainer">
           <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
@@ -75,38 +75,13 @@
           <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="torresfullstackdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="adminusers" EntityType="Self.adminuser" />
-          <EntitySet Name="users" EntityType="torresfullstackdbModel.user" />
           <EntitySet Name="class_code_tb" EntityType="torresfullstackdbModel.class_code_tb" />
+          <EntitySet Name="users" EntityType="torresfullstackdbModel.user" />
         </EntityContainer>
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="client_id" />
-          </Key>
-          <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="birthdate" Type="DateTime" Precision="3" />
-          <Property Name="age" Type="Int32" />
-          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="contactnum" Type="String" />
-          <Property Name="province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="municipality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="zip_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="image_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="is_activate" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="is_token_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="is_google_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="is_archive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="createdAt" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="class_code_tb">
           <Key>
             <PropertyRef Name="classcodeId" />
@@ -117,6 +92,31 @@
           <Property Name="is_lock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="createdAt" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="birthdate" Type="DateTime" Precision="3" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="municipality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zip_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="image_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="is_activate" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="is_token_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="is_archive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <Property Name="contactnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -126,6 +126,7 @@
           <EntitySetMapping Name="adminusers">
             <EntityTypeMapping TypeName="torresfullstackdbModel.adminuser">
               <MappingFragment StoreEntitySet="adminusers">
+                <ScalarProperty Name="istoken" ColumnName="istoken" />
                 <ScalarProperty Name="adminID" ColumnName="adminID" />
                 <ScalarProperty Name="firstname" ColumnName="firstname" />
                 <ScalarProperty Name="lastname" ColumnName="lastname" />
@@ -137,33 +138,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="torresfullstackdbModel.user">
-              <MappingFragment StoreEntitySet="users">
-                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-                <ScalarProperty Name="is_archive" ColumnName="is_archive" />
-                <ScalarProperty Name="is_google_verified" ColumnName="is_google_verified" />
-                <ScalarProperty Name="is_token_verified" ColumnName="is_token_verified" />
-                <ScalarProperty Name="is_activate" ColumnName="is_activate" />
-                <ScalarProperty Name="is_type" ColumnName="is_type" />
-                <ScalarProperty Name="is_verified" ColumnName="is_verified" />
-                <ScalarProperty Name="image_url" ColumnName="image_url" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
-                <ScalarProperty Name="municipality" ColumnName="municipality" />
-                <ScalarProperty Name="province" ColumnName="province" />
-                <ScalarProperty Name="contactnum" ColumnName="contactnum" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="age" ColumnName="age" />
-                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
-                <ScalarProperty Name="lastname" ColumnName="lastname" />
-                <ScalarProperty Name="firstname" ColumnName="firstname" />
-                <ScalarProperty Name="client_id" ColumnName="client_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="class_code_tb">
             <EntityTypeMapping TypeName="torresfullstackdbModel.class_code_tb">
               <MappingFragment StoreEntitySet="class_code_tb">
@@ -172,6 +146,32 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="classcode" ColumnName="classcode" />
                 <ScalarProperty Name="classcodeId" ColumnName="classcodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="torresfullstackdbModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="istoken" ColumnName="istoken" />
+                <ScalarProperty Name="contactnum" ColumnName="contactnum" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="is_archive" ColumnName="is_archive" />
+                <ScalarProperty Name="is_token_verified" ColumnName="is_token_verified" />
+                <ScalarProperty Name="is_activate" ColumnName="is_activate" />
+                <ScalarProperty Name="is_type" ColumnName="is_type" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+                <ScalarProperty Name="municipality" ColumnName="municipality" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

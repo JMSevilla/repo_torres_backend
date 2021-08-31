@@ -35,11 +35,9 @@ namespace TORRES_backend.Controllers
                 add_stud.email = http.Form["email"];
                 add_stud.password = apis.Encrypt(http.Form["password"]);
                 add_stud.image_url = http.Form["image_url"];
-                add_stud.is_verified = Convert.ToChar("0");
                 add_stud.is_type = Convert.ToChar("3");
                 add_stud.is_activate = Convert.ToChar("1");
                 add_stud.is_token_verified = Convert.ToChar("0");
-                add_stud.is_google_verified = Convert.ToChar("0");
                 add_stud.is_archive = Convert.ToChar("0");
                 add_stud.createdAt = Convert.ToDateTime(System.DateTime.Now.ToString("yyyy/MM/dd h:m:s"));
                 if(string.IsNullOrEmpty(add_stud.firstname) || string.IsNullOrEmpty(add_stud.lastname)
@@ -72,13 +70,12 @@ namespace TORRES_backend.Controllers
                             tbuser.email = add_stud.email;
                             tbuser.password = add_stud.password;
                             tbuser.image_url = add_stud.image_url;
-                            tbuser.is_verified = Convert.ToString(add_stud.is_verified);
                             tbuser.is_type = Convert.ToString(add_stud.is_type);
                             tbuser.is_activate = Convert.ToString(add_stud.is_activate);
                             tbuser.is_token_verified = Convert.ToString(add_stud.is_token_verified);
-                            tbuser.is_google_verified = Convert.ToString(add_stud.is_google_verified);
                             tbuser.is_archive = Convert.ToString(add_stud.is_archive);
                             tbuser.createdAt = add_stud.createdAt;
+                            tbuser.istoken = "";
                             core.users.Add(tbuser);
                             core.SaveChanges();
                             res.message = "success";
