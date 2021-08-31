@@ -4,6 +4,7 @@
     <EntitySetMapping Name="adminusers">
       <EntityTypeMapping TypeName="torresfullstackdbModel.adminuser">
         <MappingFragment StoreEntitySet="adminusers">
+          <ScalarProperty Name="istoken" ColumnName="istoken" />
           <ScalarProperty Name="adminID" ColumnName="adminID" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
           <ScalarProperty Name="lastname" ColumnName="lastname" />
@@ -12,6 +13,43 @@
           <ScalarProperty Name="is_type" ColumnName="is_type" />
           <ScalarProperty Name="is_verified" ColumnName="is_verified" />
           <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class_code_tb">
+      <EntityTypeMapping TypeName="torresfullstackdbModel.class_code_tb">
+        <MappingFragment StoreEntitySet="class_code_tb">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="classcode" ColumnName="classcode" />
+          <ScalarProperty Name="classcodeId" ColumnName="classcodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="torresfullstackdbModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="istoken" ColumnName="istoken" />
+          <ScalarProperty Name="contactnum" ColumnName="contactnum" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="is_archive" ColumnName="is_archive" />
+          <ScalarProperty Name="is_token_verified" ColumnName="is_token_verified" />
+          <ScalarProperty Name="is_activate" ColumnName="is_activate" />
+          <ScalarProperty Name="is_type" ColumnName="is_type" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="municipality" ColumnName="municipality" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

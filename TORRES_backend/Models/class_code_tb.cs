@@ -12,16 +12,12 @@ namespace TORRES_backend.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class adminuser
+    public partial class class_code_tb
     {
-        public int adminID { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
+        public int classcodeId { get; set; }
+        public string classcode { get; set; }
         public string email { get; set; }
-        public string password { get; set; }
-        public string is_type { get; set; }
-        public string is_verified { get; set; }
+        public string is_lock { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }
-        public string istoken { get; set; }
     }
 }

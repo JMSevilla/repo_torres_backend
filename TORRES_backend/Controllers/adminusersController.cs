@@ -31,7 +31,7 @@ namespace TORRES_backend.Controllers
             {
                 using (db)
                 {
-                    var checker = db.adminusers.Any(x => x.is_type == "1");
+                    var checker = db.adminusers.Any(x => x.is_type == "1" && x.is_verified == "1");
                     if (checker)
                     {
                         return Ok("exist");
@@ -131,6 +131,7 @@ namespace TORRES_backend.Controllers
                         useradmin.is_type = Convert.ToString(admin.istype);
                         useradmin.is_verified = Convert.ToString(admin.isverifier);
                         useradmin.createdAt = admin.createdat;
+                        useradmin.istoken = "";
                         db.adminusers.Add(useradmin);
                         db.SaveChanges();
                         resp.message = "success";

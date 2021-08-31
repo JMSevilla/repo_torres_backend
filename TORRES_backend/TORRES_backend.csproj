@@ -166,6 +166,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\adminusersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Signin\signinController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,7 +175,11 @@
     <Compile Include="Models\adminuser.cs">
       <DependentUpon>torresbackend.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\class_code_tb.cs">
+      <DependentUpon>torresbackend.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\credentialsauth.cs" />
+    <Compile Include="Models\StudentClass.cs" />
     <Compile Include="Models\torresbackend.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +194,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>torresbackend.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>torresbackend.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

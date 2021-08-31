@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3e799a91630b4245b31a7c381c386f49" Name="Diagram1">
         <EntityTypeShape EntityType="torresfullstackdbModel.adminuser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="torresfullstackdbModel.class_code_tb" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="torresfullstackdbModel.user" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

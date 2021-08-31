@@ -12,8 +12,46 @@
     <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="createdAt" Type="DateTime" Precision="3" />
+    <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="torresfullstackdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="adminusers" EntityType="Self.adminuser" />
+    <EntitySet Name="class_code_tb" EntityType="torresfullstackdbModel.class_code_tb" />
+    <EntitySet Name="users" EntityType="torresfullstackdbModel.user" />
   </EntityContainer>
+  <EntityType Name="class_code_tb">
+    <Key>
+      <PropertyRef Name="classcodeId" />
+    </Key>
+    <Property Name="classcodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="classcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="is_lock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="birthdate" Type="DateTime" Precision="3" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="municipality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="zip_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="image_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_activate" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_token_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_archive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+    <Property Name="contactnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
