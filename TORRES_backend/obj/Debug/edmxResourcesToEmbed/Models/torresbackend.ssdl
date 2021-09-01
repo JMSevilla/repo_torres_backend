@@ -24,6 +24,25 @@
     <Property Name="is_lock" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
   </EntityType>
+  <EntityType Name="report_a_bug">
+    <Key>
+      <PropertyRef Name="bugID" />
+    </Key>
+    <Property Name="bugID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientemail" Type="varchar(max)" />
+    <Property Name="clientfullname" Type="varchar" MaxLength="255" />
+    <Property Name="bugCode" Type="varchar(max)" />
+    <Property Name="bugTitle" Type="varchar" MaxLength="255" />
+    <Property Name="bugDescription" Type="text" />
+    <Property Name="bugLocation" Type="varchar" MaxLength="255" />
+    <Property Name="bugAttachedFile" Type="varchar(max)" />
+    <Property Name="startfixschedule" Type="datetime" />
+    <Property Name="endfixschedule" Type="datetime" />
+    <Property Name="sendtodev" Type="char" MaxLength="1" />
+    <Property Name="devmaintenance" Type="char" MaxLength="1" />
+    <Property Name="bugstatus" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
   <EntityType Name="users">
     <Key>
       <PropertyRef Name="client_id" />
@@ -52,6 +71,7 @@
   <EntityContainer Name="torresfullstackdbModelStoreContainer">
     <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

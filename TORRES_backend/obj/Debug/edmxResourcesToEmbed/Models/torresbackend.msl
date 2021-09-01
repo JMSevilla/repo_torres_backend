@@ -53,5 +53,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="report_a_bug">
+      <EntityTypeMapping TypeName="torresfullstackdbModel.report_a_bug">
+        <MappingFragment StoreEntitySet="report_a_bug">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="bugstatus" ColumnName="bugstatus" />
+          <ScalarProperty Name="devmaintenance" ColumnName="devmaintenance" />
+          <ScalarProperty Name="sendtodev" ColumnName="sendtodev" />
+          <ScalarProperty Name="endfixschedule" ColumnName="endfixschedule" />
+          <ScalarProperty Name="startfixschedule" ColumnName="startfixschedule" />
+          <ScalarProperty Name="bugAttachedFile" ColumnName="bugAttachedFile" />
+          <ScalarProperty Name="bugLocation" ColumnName="bugLocation" />
+          <ScalarProperty Name="bugDescription" ColumnName="bugDescription" />
+          <ScalarProperty Name="bugTitle" ColumnName="bugTitle" />
+          <ScalarProperty Name="bugCode" ColumnName="bugCode" />
+          <ScalarProperty Name="clientfullname" ColumnName="clientfullname" />
+          <ScalarProperty Name="clientemail" ColumnName="clientemail" />
+          <ScalarProperty Name="bugID" ColumnName="bugID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

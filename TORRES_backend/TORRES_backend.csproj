@@ -165,6 +165,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\adminusersController.cs" />
+    <Compile Include="Controllers\BugReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Signin\signinController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -179,6 +180,9 @@
       <DependentUpon>torresbackend.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\credentialsauth.cs" />
+    <Compile Include="Models\report_a_bug.cs">
+      <DependentUpon>torresbackend.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\StudentClass.cs" />
     <Compile Include="Models\torresbackend.Context.cs">
       <AutoGen>True</AutoGen>
