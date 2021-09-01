@@ -19,7 +19,7 @@ namespace TORRES_backend.Controllers
         Response res = new Response();
         private torresfullstackdbEntities core = new torresfullstackdbEntities();
         private report_a_bug bug = new report_a_bug();
-        [Route("report-a-bug")]
+        [Route("report-a-bug"), HttpPost]
         public IHttpActionResult reportbug()
         {
             try

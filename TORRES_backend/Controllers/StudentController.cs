@@ -16,7 +16,7 @@ namespace TORRES_backend.Controllers
         private Response res = new Response();
         private user tbuser = new user();
         APISecurity apis = new APISecurity();
-        [Route("add-student")]
+        [Route("add-student"), HttpPost]
         public IHttpActionResult StudentRegistration()
         {
             try
