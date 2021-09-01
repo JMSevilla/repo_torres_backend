@@ -12,7 +12,7 @@ using TORRES_backend.Models;
 using System.Web;
 namespace TORRES_backend.Controllers.Signin
 {
-    [RoutePrefix("api/signin")]
+    [RoutePrefix("api/v1/resources/signin")]
     public class signinController : ApiController
     {
         private torresfullstackdbEntities db = new torresfullstackdbEntities();

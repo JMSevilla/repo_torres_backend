@@ -12,7 +12,7 @@ using TORRES_backend.Models;
 using System.Web;
 namespace TORRES_backend.Controllers
 {
-    [RoutePrefix("api/administrator")]
+    [RoutePrefix("api/v1/resources/administrator")]
     public class adminusersController : ApiController
     {
         private torresfullstackdbEntities db = new torresfullstackdbEntities();
