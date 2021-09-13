@@ -48,6 +48,31 @@
           <Property Name="bugstatus" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
         </EntityType>
+        <EntityType Name="training">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isonline" Type="char" MaxLength="1" />
+          <Property Name="trainingName" Type="varchar" MaxLength="100" />
+          <Property Name="SD" Type="varchar" MaxLength="100" />
+          <Property Name="FD" Type="varchar" MaxLength="255" />
+          <Property Name="WYL" Type="varchar" MaxLength="255" />
+          <Property Name="imageURL" Type="varchar(max)" />
+          <Property Name="isstatus" Type="char" MaxLength="1" />
+          <Property Name="isforum" Type="char" MaxLength="1" />
+          <Property Name="islivechat" Type="char" MaxLength="1" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="ispayment" Type="char" MaxLength="1" />
+          <Property Name="coursefee" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="effort" Type="varchar" MaxLength="100" />
+          <Property Name="tLength" Type="varchar" MaxLength="100" />
+          <Property Name="categories" Type="varchar" MaxLength="100" />
+          <Property Name="trainingStart" Type="datetime" />
+          <Property Name="trainingEnd" Type="datetime" />
+          <Property Name="empAssignee" Type="varchar" MaxLength="100" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="client_id" />
@@ -77,6 +102,7 @@
           <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -102,6 +128,7 @@
           <EntitySet Name="class_code_tb" EntityType="torresfullstackdbModel.class_code_tb" />
           <EntitySet Name="users" EntityType="torresfullstackdbModel.user" />
           <EntitySet Name="report_a_bug" EntityType="torresfullstackdbModel.report_a_bug" />
+          <EntitySet Name="trainings" EntityType="torresfullstackdbModel.training" />
         </EntityContainer>
         <EntityType Name="class_code_tb">
           <Key>
@@ -155,6 +182,31 @@
           <Property Name="sendtodev" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="devmaintenance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="bugstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="training">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isonline" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="trainingName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WYL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="isforum" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="islivechat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="ispayment" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="coursefee" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="effort" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tLength" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="categories" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="trainingStart" Type="DateTime" Precision="3" />
+          <Property Name="trainingEnd" Type="DateTime" Precision="3" />
+          <Property Name="empAssignee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="createdAt" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
@@ -232,6 +284,32 @@
                 <ScalarProperty Name="clientfullname" ColumnName="clientfullname" />
                 <ScalarProperty Name="clientemail" ColumnName="clientemail" />
                 <ScalarProperty Name="bugID" ColumnName="bugID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trainings">
+            <EntityTypeMapping TypeName="torresfullstackdbModel.training">
+              <MappingFragment StoreEntitySet="training">
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="empAssignee" ColumnName="empAssignee" />
+                <ScalarProperty Name="trainingEnd" ColumnName="trainingEnd" />
+                <ScalarProperty Name="trainingStart" ColumnName="trainingStart" />
+                <ScalarProperty Name="categories" ColumnName="categories" />
+                <ScalarProperty Name="tLength" ColumnName="tLength" />
+                <ScalarProperty Name="effort" ColumnName="effort" />
+                <ScalarProperty Name="coursefee" ColumnName="coursefee" />
+                <ScalarProperty Name="ispayment" ColumnName="ispayment" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="islivechat" ColumnName="islivechat" />
+                <ScalarProperty Name="isforum" ColumnName="isforum" />
+                <ScalarProperty Name="isstatus" ColumnName="isstatus" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="WYL" ColumnName="WYL" />
+                <ScalarProperty Name="FD" ColumnName="FD" />
+                <ScalarProperty Name="SD" ColumnName="SD" />
+                <ScalarProperty Name="trainingName" ColumnName="trainingName" />
+                <ScalarProperty Name="isonline" ColumnName="isonline" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
