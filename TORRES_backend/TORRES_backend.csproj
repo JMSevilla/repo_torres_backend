@@ -167,6 +167,7 @@
     <Compile Include="Controllers\v1\resources\Administrator\adminusersController.cs" />
     <Compile Include="Controllers\BugReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\v1\resources\Administrator\Training\userTrainingController.cs" />
     <Compile Include="Controllers\v1\resources\Signin\signinController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -198,6 +199,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>torresbackend.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\training.cs">
+      <DependentUpon>torresbackend.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
       <DependentUpon>torresbackend.tt</DependentUpon>
