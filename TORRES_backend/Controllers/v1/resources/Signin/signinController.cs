@@ -222,6 +222,34 @@ namespace TORRES_backend.Controllers.Signin
                 return BadRequest(ex.Message);
             }
         }
+        [Route("update-destroy-token")]
+        [HttpPut]
+        public IHttpActionResult destroyToken(string email)
+        {
+            try
+            {
+                using (db)
+                {
+                    var destroy = db.adminusers.Where(x => x.email == email).FirstOrDefault();
+                    if(destroy != null)
+                    {
+                        destroy.istoken = "";
+                        db.SaveChanges();
+                        auth.status = "update token admin logout";
+                        auth.databulk = db.adminusers.Where(x => x.email == email).Select(t => new
+                        {
+                            t.istoken
+                        }).ToList();
+                        return Ok(auth);
+                    }
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [Route("check-token"), HttpGet]
         public IHttpActionResult getchecktoken(string token, string email)
         {
