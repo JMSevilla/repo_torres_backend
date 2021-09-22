@@ -10,12 +10,15 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using TORRES_backend.Models;
 using System.Web;
+using TORRES_backend.Helpers;
+
 namespace TORRES_backend.Controllers
 {
     [RoutePrefix("api/v1/resources/administrator")]
     public class adminusersController : ApiController
     {
-        private torresfullstackdbEntities db = new torresfullstackdbEntities();
+        private ttcdbEntities db = new ttcdbEntities();
+        adminRegisterHelper regdev = new adminRegisterHelper();
 
         // GET: api/adminusers
         public IQueryable<adminuser> Getadminusers()
@@ -29,18 +32,8 @@ namespace TORRES_backend.Controllers
         {
             try
             {
-                using (db)
-                {
-                    var checker = db.adminusers.Any(x => x.is_type == "1" && x.is_verified == "1");
-                    if (checker)
-                    {
-                        return Ok("exist");
-                    }
-                    else
-                    {
-                        return Ok("not exist");
-                    }
-                }
+                regdev.detectAdminInterface();
+                return Ok(adminRegisterHelper.getDynamicAdmin);
             }
             catch (Exception ex)
             {
@@ -130,7 +123,7 @@ namespace TORRES_backend.Controllers
                         useradmin.password = admin.password;
                         useradmin.is_type = Convert.ToString(admin.istype);
                         useradmin.is_verified = Convert.ToString(admin.isverifier);
-                        useradmin.createdAt = admin.createdat;
+                        useradmin.createdat = admin.createdat;
                         useradmin.istoken = "";
                         db.adminusers.Add(useradmin);
                         db.SaveChanges();

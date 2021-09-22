@@ -15,10 +15,10 @@ namespace TORRES_backend.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class torresfullstackdbEntities : DbContext
+    public partial class ttcdbEntities : DbContext
     {
-        public torresfullstackdbEntities()
-            : base("name=torresfullstackdbEntities")
+        public ttcdbEntities()
+            : base("name=ttcdbEntities")
         {
         }
     
@@ -29,21 +29,22 @@ namespace TORRES_backend.Models
     
         public virtual DbSet<adminuser> adminusers { get; set; }
         public virtual DbSet<class_code_tb> class_code_tb { get; set; }
-        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<employeeUser> employeeUsers { get; set; }
         public virtual DbSet<report_a_bug> report_a_bug { get; set; }
         public virtual DbSet<training> trainings { get; set; }
+        public virtual DbSet<user> users { get; set; }
     
-        public virtual int update_session_Blocker(string email, Nullable<int> onaction)
+        public virtual int update_session_handler(string email, Nullable<int> actionState)
         {
             var emailParameter = email != null ?
                 new ObjectParameter("email", email) :
                 new ObjectParameter("email", typeof(string));
     
-            var onactionParameter = onaction.HasValue ?
-                new ObjectParameter("onaction", onaction) :
-                new ObjectParameter("onaction", typeof(int));
+            var actionStateParameter = actionState.HasValue ?
+                new ObjectParameter("actionState", actionState) :
+                new ObjectParameter("actionState", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("update_session_Blocker", emailParameter, onactionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("update_session_handler", emailParameter, actionStateParameter);
         }
     }
 }

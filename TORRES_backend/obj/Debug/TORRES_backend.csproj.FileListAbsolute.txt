@@ -229,6 +229,7 @@ C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\T
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\roslyn\VBCSCompiler.exe
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Antlr3.Runtime.dll
+C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\DotLiquid.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\EntityFramework.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\EntityFramework.SqlServer.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -245,6 +246,7 @@ C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\T
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\System.Web.WebPages.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\System.Web.WebPages.Razor.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\WebGrease.dll
+C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\DotLiquid.xml
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\EntityFramework.xml
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\EntityFramework.SqlServer.xml
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Newtonsoft.Json.xml
@@ -260,6 +262,7 @@ C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\T
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\System.Web.WebPages.Razor.xml
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Antlr3.Runtime.pdb
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\it\DotLiquid.resources.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.AssemblyReference.cache
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.CoreCompileInputs.cache
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.CopyComplete

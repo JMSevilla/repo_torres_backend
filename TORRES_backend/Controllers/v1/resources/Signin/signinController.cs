@@ -72,6 +72,21 @@ namespace TORRES_backend.Controllers.Signin
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [Route("access-session")]
+        [HttpPut]
+        public IHttpActionResult getsession(string email)
+        {
+            try
+            {
+                __helper.SessionWillUpdate(email);
+                return Ok("session update");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
        class authcredentials
         {
             public string email { get; set; }
@@ -87,7 +102,7 @@ namespace TORRES_backend.Controllers.Signin
         {
             try
             {
-                __helper.loginInterface();
+                __helper.sessionBlockerInterface();
                 return Ok(credentialsHelper.getSigninResponse);
             }
             catch (Exception)
@@ -115,22 +130,8 @@ namespace TORRES_backend.Controllers.Signin
         {
             try
             {
-                using (db)
-                {
-                    var destroy = db.adminusers.Where(x => x.email == email).FirstOrDefault();
-                    if(destroy != null)
-                    {
-                        destroy.istoken = "";
-                        db.SaveChanges();
-                        auth.status = "update token admin logout";
-                        auth.databulk = db.adminusers.Where(x => x.email == email).Select(t => new
-                        {
-                            t.istoken
-                        }).ToList();
-                        return Ok(auth);
-                    }
-                    return Ok();
-                }
+                __helper.detroyInterface(email);
+                return Ok(credentialsHelper.getSigninResponse);
             }
             catch (Exception ex)
             {
@@ -142,30 +143,8 @@ namespace TORRES_backend.Controllers.Signin
         {
             try
             {
-                using (db)
-                {
-                    if(string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email))
-                    {
-                        return Ok("no data");
-                    }
-                    else
-                    {
-                        var admin_check_token = db.adminusers.Any(x => x.email == email && x.istoken == token);
-                        var normal_user_token = db.users.Any(x => x.email == email && x.istoken == token);
-                        if (admin_check_token)
-                        {
-                            return Ok("admin direct");
-                        }
-                        else if (normal_user_token)
-                        {
-                            return Ok("user direct");
-                        }
-                        else
-                        {
-                            return Ok("home direct");
-                        }
-                    }
-                }
+                __helper.checkTokenInterface(token, email);
+                return Ok(credentialsHelper.getSigninResponse);
             }
             catch (Exception ex)
             {
