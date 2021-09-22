@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="torresfullstackdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="adminusers">
+<Schema Namespace="ttcdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminuser">
     <Key>
       <PropertyRef Name="adminID" />
     </Key>
@@ -11,7 +11,7 @@
     <Property Name="password" Type="varchar(max)" />
     <Property Name="is_type" Type="char" MaxLength="1" />
     <Property Name="is_verified" Type="char" MaxLength="1" />
-    <Property Name="createdAt" Type="datetime" />
+    <Property Name="createdat" Type="datetime" />
     <Property Name="istoken" Type="varchar(max)" />
     <Property Name="isused" Type="char" MaxLength="1" />
   </EntityType>
@@ -20,9 +20,22 @@
       <PropertyRef Name="classcodeId" />
     </Key>
     <Property Name="classcodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="classcode" Type="varchar" MaxLength="50" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="classcode" Type="varchar(max)" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="is_lock" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="employeeUser">
+    <Key>
+      <PropertyRef Name="empID" />
+    </Key>
+    <Property Name="empID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empName" Type="varchar" MaxLength="100" />
+    <Property Name="empEmail" Type="varchar" MaxLength="255" />
+    <Property Name="empPassword" Type="varchar(max)" />
+    <Property Name="APIAccess" Type="char" MaxLength="1" />
+    <Property Name="APIKey" Type="varchar(max)" />
+    <Property Name="grantAccess" Type="varchar" MaxLength="100" />
     <Property Name="createdAt" Type="datetime" />
   </EntityType>
   <EntityType Name="report_a_bug">
@@ -30,10 +43,10 @@
       <PropertyRef Name="bugID" />
     </Key>
     <Property Name="bugID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="clientemail" Type="varchar(max)" />
+    <Property Name="clientemail" Type="varchar" MaxLength="255" />
     <Property Name="clientfullname" Type="varchar" MaxLength="255" />
-    <Property Name="bugCode" Type="varchar(max)" />
-    <Property Name="bugTitle" Type="varchar" MaxLength="255" />
+    <Property Name="bugCode" Type="varchar" MaxLength="255" />
+    <Property Name="bugTitle" Type="varchar" MaxLength="100" />
     <Property Name="bugDescription" Type="text" />
     <Property Name="bugLocation" Type="varchar" MaxLength="255" />
     <Property Name="bugAttachedFile" Type="varchar(max)" />
@@ -50,9 +63,9 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="isonline" Type="char" MaxLength="1" />
-    <Property Name="trainingName" Type="varchar" MaxLength="100" />
+    <Property Name="trainingName" Type="varchar" MaxLength="255" />
     <Property Name="SD" Type="varchar" MaxLength="100" />
-    <Property Name="FD" Type="varchar" MaxLength="255" />
+    <Property Name="FD" Type="text" />
     <Property Name="WYL" Type="varchar" MaxLength="255" />
     <Property Name="imageURL" Type="varchar(max)" />
     <Property Name="isstatus" Type="char" MaxLength="1" />
@@ -78,7 +91,7 @@
     <Property Name="lastname" Type="varchar" MaxLength="100" />
     <Property Name="birthdate" Type="datetime" />
     <Property Name="age" Type="int" />
-    <Property Name="gender" Type="char" MaxLength="1" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
     <Property Name="province" Type="varchar" MaxLength="100" />
     <Property Name="municipality" Type="varchar" MaxLength="100" />
     <Property Name="zip_code" Type="varchar" MaxLength="100" />
@@ -95,13 +108,14 @@
     <Property Name="istoken" Type="varchar(max)" />
     <Property Name="isused" Type="char" MaxLength="1" />
   </EntityType>
-  <Function Name="update_session_Blocker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="update_session_handler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="email" Type="varchar" Mode="In" />
-    <Parameter Name="onaction" Type="int" Mode="In" />
+    <Parameter Name="actionState" Type="int" Mode="In" />
   </Function>
-  <EntityContainer Name="torresfullstackdbModelStoreContainer">
-    <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="ttcdbModelStoreContainer">
+    <EntitySet Name="adminuser" EntityType="Self.adminuser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employeeUser" EntityType="Self.employeeUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />

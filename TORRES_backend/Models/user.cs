@@ -34,5 +34,6 @@ namespace TORRES_backend.Models
         public Nullable<System.DateTime> createdAt { get; set; }
         public string contactnum { get; set; }
         public string istoken { get; set; }
+        public string isused { get; set; }
     }
 }

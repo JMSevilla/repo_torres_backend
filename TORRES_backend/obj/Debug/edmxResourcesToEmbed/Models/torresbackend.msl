@@ -4,6 +4,7 @@
     <EntitySetMapping Name="adminusers">
       <EntityTypeMapping TypeName="torresfullstackdbModel.adminuser">
         <MappingFragment StoreEntitySet="adminusers">
+          <ScalarProperty Name="isused" ColumnName="isused" />
           <ScalarProperty Name="istoken" ColumnName="istoken" />
           <ScalarProperty Name="adminID" ColumnName="adminID" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
@@ -30,6 +31,7 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="torresfullstackdbModel.user">
         <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="isused" ColumnName="isused" />
           <ScalarProperty Name="istoken" ColumnName="istoken" />
           <ScalarProperty Name="contactnum" ColumnName="contactnum" />
           <ScalarProperty Name="createdAt" ColumnName="createdAt" />
@@ -99,5 +101,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="update_session_Blocker" FunctionName="torresfullstackdbModel.Store.update_session_Blocker" />
   </EntityContainerMapping>
 </Mapping>

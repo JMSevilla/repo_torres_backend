@@ -7,12 +7,12 @@ namespace TORRES_backend.APIConnection
 {
     public static class Connection
     {
-        private static torresfullstackdbEntities _APIDB;
-        public static torresfullstackdbEntities _publicDB
+        private static ttcdbEntities _APIDB;
+        public static ttcdbEntities _publicDB
         {
             get
             {
-                _APIDB = new torresfullstackdbEntities();
+                _APIDB = new ttcdbEntities();
                 return _APIDB;
             }
         }

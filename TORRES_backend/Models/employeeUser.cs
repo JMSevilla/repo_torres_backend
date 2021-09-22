@@ -12,17 +12,15 @@ namespace TORRES_backend.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class adminuser
+    public partial class employeeUser
     {
-        public int adminID { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public string is_type { get; set; }
-        public string is_verified { get; set; }
-        public Nullable<System.DateTime> createdat { get; set; }
-        public string istoken { get; set; }
-        public string isused { get; set; }
+        public int empID { get; set; }
+        public string empName { get; set; }
+        public string empEmail { get; set; }
+        public string empPassword { get; set; }
+        public string APIAccess { get; set; }
+        public string APIKey { get; set; }
+        public string grantAccess { get; set; }
+        public Nullable<System.DateTime> createdAt { get; set; }
     }
 }

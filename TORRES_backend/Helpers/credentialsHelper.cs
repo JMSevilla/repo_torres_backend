@@ -19,21 +19,20 @@ namespace TORRES_backend.Helpers
 
 
         public static dynamic getSigninResponse;
+        public static Boolean issessionUsed;
         public class BEWillResponse
         {
             public String status { get; set; }
             public Object databulk {get;set;}
         }
-       
-         class dbProcessor
-        {
-            public torresfullstackdbEntities __classDB { get; set; }
-        }
+
+        
         class Decryption{
             public string orig {get;set;}
             public string decryptRequest {get;set;}
         }
-        class loginAppend
+        
+        class loginAppend 
         {
             signinBindHelper bind = new signinBindHelper();
             initialState state = new initialState();
@@ -95,6 +94,7 @@ namespace TORRES_backend.Helpers
                     }
                 }
             }
+
             void Validate(string email, string password)
             {
                 if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)){
@@ -103,30 +103,28 @@ namespace TORRES_backend.Helpers
                     return;
                 }
             }
-        }
-        public void loginInterface()
-        {
-            loginAppend logs = new loginAppend();
-            logs._login_shifts();
+            
         }
 
+        
         class tokenAppend
         {
-           
+            ttcdbEntities core = Connection._publicDB;
             BEWillResponse ESignResponse = new BEWillResponse();
             public void _shift_Token(string email, string token)
             {
+                
                 try
                 {
-                    using (Connection._publicDB)
+                    using (core)
                     {
-                        var check = Connection._publicDB.adminusers.Where(x => x.email == email).FirstOrDefault();
+                        var check = core.adminusers.Where(x => x.email == email).FirstOrDefault();
                         if(check != null)
                         {
                             check.istoken = token;
-                            Connection._publicDB.SaveChanges();
+                            core.SaveChanges();
                             ESignResponse.status = "update token admin";
-                            ESignResponse.databulk = Connection._publicDB.adminusers
+                            ESignResponse.databulk = core.adminusers
                                 .Where(y => y.email == email).Select(t => new
                                 {
                                     t.istoken
@@ -142,10 +140,140 @@ namespace TORRES_backend.Helpers
                     throw;
                 }
             }
+            public void _shift_DestroyToken(string email)
+            {
+                try
+                {
+                    using ( core  )
+                    {
+                        var destroy = core.adminusers.Where(x => x.email == email).FirstOrDefault();
+                        if (destroy != null)
+                        {
+                            destroy.istoken = "";
+                            core.SaveChanges();
+                            ESignResponse.status = "update token admin logout";
+                            ESignResponse.databulk = core.adminusers.Where(x => x.email == email).Select(t => new
+                            {
+                                t.istoken
+                            }).ToList();
+                            getSigninResponse = ESignResponse;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            public void _shift_checkToken(string token, string email)
+            {
+                try
+                {
+                    using (core)
+                    {
+                        TokenCheckWillValidate(token, email);
+                        var admin_check_token = core.adminusers.Any(x => x.email == email && x.istoken == token);
+                        var normal_user_token = core.users.Any(x => x.email == email && x.istoken == token);
+                        if (admin_check_token)
+                        {
+
+                             getSigninResponse = "admin direct";
+                        }
+                        else if (normal_user_token)
+                        {
+                            getSigninResponse = "user direct";
+                        }
+                        else
+                        {
+                            getSigninResponse = "home direct";
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            void TokenCheckWillValidate(string token, string email)
+            {
+                if(string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email))
+                {
+                    ESignResponse.status = "empty";
+                }
+            }
         }
+        tokenAppend tokeappend = new tokenAppend();
         public void tokenInterface(string email, string token)
         {
-            throw new NotImplementedException();
+            tokeappend._shift_Token(email, token);
+        }
+
+        public void detroyInterface(string email)
+        {
+            tokeappend._shift_DestroyToken(email);
+        }
+
+        public void checkTokenInterface(string token, string email)
+        {
+            tokeappend._shift_checkToken(token, email);
+        }
+
+        class Blocker
+        {
+            ttcdbEntities __dbprocess = Connection._publicDB;
+            loginAppend log = new loginAppend();
+            signinBindHelper bind = new signinBindHelper();
+            public void getBlocker()
+            {
+                try
+                {
+                    var server = HttpContext.Current.Request;
+                    String email = server.Form["email"];
+                    using (__dbprocess)
+                    {
+                        var __sessionCheck = __dbprocess.adminusers.Any(x =>
+                        x.email == email && x.isused == "1");
+                        if (__sessionCheck)
+                        {
+                            issessionUsed = true;
+                        }
+                        else
+                        {
+                            log._login_shifts();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+        public void sessionBlockerInterface()
+        {
+            Blocker block = new Blocker();
+            block.getBlocker();
+        }
+
+        public IHttpActionResult SessionWillUpdate(string email)
+        {
+            try
+            {
+                using (Connection._publicDB)
+                {
+                    Connection._publicDB.update_session_handler(email, 1);
+                    Connection._publicDB.SaveChanges();
+                    return Ok();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

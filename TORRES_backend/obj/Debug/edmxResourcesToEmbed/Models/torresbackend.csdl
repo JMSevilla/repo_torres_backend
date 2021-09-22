@@ -13,6 +13,7 @@
     <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
     <Property Name="createdAt" Type="DateTime" Precision="3" />
     <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityContainer Name="torresfullstackdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="adminusers" EntityType="Self.adminuser" />
@@ -20,6 +21,10 @@
     <EntitySet Name="users" EntityType="torresfullstackdbModel.user" />
     <EntitySet Name="report_a_bug" EntityType="torresfullstackdbModel.report_a_bug" />
     <EntitySet Name="trainings" EntityType="torresfullstackdbModel.training" />
+    <FunctionImport Name="update_session_Blocker">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="onaction" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="class_code_tb">
     <Key>
@@ -55,6 +60,7 @@
     <Property Name="createdAt" Type="DateTime" Precision="3" />
     <Property Name="contactnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <EntityType Name="report_a_bug">
     <Key>

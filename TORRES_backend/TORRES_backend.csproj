@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotLiquid, Version=2.2.548.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotLiquid.2.2.548\lib\net45\DotLiquid.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -175,19 +178,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\adminRegisterHelper.cs" />
     <Compile Include="Helpers\credentialsHelper.cs" />
+    <Compile Include="Helpers\reportbugHelper.cs" />
     <Compile Include="Helpers\TrainingAPIHelper.cs" />
+    <Compile Include="Interfaces\AdminInterface.cs" />
     <Compile Include="Interfaces\CredentialsInterface.cs" />
+    <Compile Include="Interfaces\reportBugInterface.cs" />
     <Compile Include="Interfaces\TrainingInterface.cs" />
     <Compile Include="Models\adminuser.cs">
-      <DependentUpon>torresbackend.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\class_code_tb.cs">
-      <DependentUpon>torresbackend.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\credentialsauth.cs" />
+    <Compile Include="Models\employeeUser.cs">
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\report_a_bug.cs">
-      <DependentUpon>torresbackend.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentClass.cs" />
     <Compile Include="Models\torresbackend.Context.cs">
@@ -205,14 +215,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>torresbackend.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\torresLocalDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torresLocalDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\torresLocalDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\torresLocalDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torresLocalDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\training.cs">
-      <DependentUpon>torresbackend.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>torresbackend.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_dataBind\trainingBindingInterface.cs" />
+    <Compile Include="_dataBind\_bindHelper\adminBind.cs" />
+    <Compile Include="_dataBind\_bindHelper\reportBind.cs" />
     <Compile Include="_dataBind\_bindHelper\signinBindHelper.cs" />
     <Compile Include="_dataBind\_bindHelper\trainingBindHelper.cs" />
   </ItemGroup>
@@ -234,6 +261,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>torresbackend.edmx</DependentUpon>
       <LastGenOutput>torresbackend.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\torresLocalDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>torresLocalDB.edmx</DependentUpon>
+      <LastGenOutput>torresLocalDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\torresLocalDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>torresLocalDB.edmx</DependentUpon>
+      <LastGenOutput>torresLocalDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -262,6 +299,13 @@
     </EntityDeploy>
     <Content Include="Models\torresbackend.edmx.diagram">
       <DependentUpon>torresbackend.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\torresLocalDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>torresLocalDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\torresLocalDB.edmx.diagram">
+      <DependentUpon>torresLocalDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
