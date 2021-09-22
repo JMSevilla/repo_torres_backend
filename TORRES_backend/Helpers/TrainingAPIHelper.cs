@@ -18,6 +18,7 @@ namespace TORRES_backend.Helpers
        
         public static string message;
         public static dynamic responsePool;
+        public static dynamic trainingArray;
          class trainingAppend
         {
             trainingBindHelper t = new trainingBindHelper();
@@ -89,6 +90,19 @@ namespace TORRES_backend.Helpers
             }
         }
 
-        
+        public IHttpActionResult BEFetchAllTraining()
+        {
+            try
+            {
+                trainingArray = db.trainings.ToList();
+                return Ok(trainingArray);
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

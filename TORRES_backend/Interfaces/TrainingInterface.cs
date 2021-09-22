@@ -15,5 +15,7 @@ namespace TORRES_backend.Interfaces
     {
        
         IHttpActionResult BETraining();
+        IHttpActionResult BEFetchAllTraining();
+
     }
 }
