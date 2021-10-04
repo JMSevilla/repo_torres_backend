@@ -263,7 +263,6 @@ C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\T
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Antlr3.Runtime.pdb
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\bin\it\DotLiquid.resources.dll
-C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.AssemblyReference.cache
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.CoreCompileInputs.cache
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.CopyComplete
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.dll

@@ -147,6 +147,9 @@ namespace TORRES_backend.Helpers
                     using ( core  )
                     {
                         var destroy = core.adminusers.Where(x => x.email == email).FirstOrDefault();
+                        // var fetchsomething = core.training.tolist();
+                        // dynamic getalldata;
+                        // getalldata = fetchsomething
                         if (destroy != null)
                         {
                             destroy.istoken = "";
