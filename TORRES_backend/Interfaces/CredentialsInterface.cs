@@ -15,7 +15,7 @@ namespace TORRES_backend.Interfaces
         void tokenInterface(string email, string token);
         void detroyInterface(string email);
         void checkTokenInterface(string token, string email);
-        void sessionBlockerInterface();
+        void sessionBlockerInterface(); //stage 1
 
         IHttpActionResult SessionWillUpdate(string email);
     }

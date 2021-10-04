@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TORRES_backend.Interfaces;
 using TORRES_backend.Models;
+using TORRES_backend.APIConnection;
 using TORRES_backend._dataBind._bindHelper;
 
 namespace TORRES_backend.Helpers
