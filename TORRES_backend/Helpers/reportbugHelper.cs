@@ -15,7 +15,7 @@ namespace TORRES_backend.Helpers
     {
         public static dynamic reportPool;
         public static string Reportmessage;
-        ttcdbEntities core = Connection._publicDB;
+        dbttcEntities core = Connection._publiccloud;
         class bugreportAppend
         {
             reportBind report = new reportBind();

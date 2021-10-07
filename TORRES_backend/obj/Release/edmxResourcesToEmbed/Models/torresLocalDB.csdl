@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ttcdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="adminuser">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdat" Type="DateTime" Precision="3" />
+    <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="class_code_tb">
+    <Key>
+      <PropertyRef Name="classcodeId" />
+    </Key>
+    <Property Name="classcodeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="classcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="is_lock" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="employeeUser">
+    <Key>
+      <PropertyRef Name="empID" />
+    </Key>
+    <Property Name="empID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="empEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="empPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="APIAccess" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="APIKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="grantAccess" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="report_a_bug">
+    <Key>
+      <PropertyRef Name="bugID" />
+    </Key>
+    <Property Name="bugID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientemail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="clientfullname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="bugCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="bugTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bugDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="bugLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="bugAttachedFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="startfixschedule" Type="DateTime" Precision="3" />
+    <Property Name="endfixschedule" Type="DateTime" Precision="3" />
+    <Property Name="sendtodev" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="devmaintenance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="bugstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="training">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="isonline" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="trainingName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="WYL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="imageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="isforum" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="islivechat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="capacity" Type="Int32" />
+    <Property Name="ispayment" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="coursefee" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="effort" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tLength" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="categories" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="trainingStart" Type="DateTime" Precision="3" />
+    <Property Name="trainingEnd" Type="DateTime" Precision="3" />
+    <Property Name="empAssignee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="birthdate" Type="DateTime" Precision="3" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="municipality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="zip_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="image_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_activate" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_token_verified" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="is_archive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+    <Property Name="contactnum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="istoken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ttcdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="adminusers" EntityType="Self.adminuser" />
+    <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" />
+    <EntitySet Name="employeeUsers" EntityType="Self.employeeUser" />
+    <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" />
+    <EntitySet Name="trainings" EntityType="Self.training" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <FunctionImport Name="update_session_handler">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="actionState" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

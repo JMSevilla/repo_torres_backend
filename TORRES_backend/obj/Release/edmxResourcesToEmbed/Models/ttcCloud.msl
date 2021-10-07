@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbttcModelStoreContainer" CdmEntityContainer="dbttcEntities">
+    <EntitySetMapping Name="adminusers">
+      <EntityTypeMapping TypeName="dbttcModel.adminuser">
+        <MappingFragment StoreEntitySet="adminuser">
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="is_type" ColumnName="is_type" />
+          <ScalarProperty Name="is_verified" ColumnName="is_verified" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="istoken" ColumnName="istoken" />
+          <ScalarProperty Name="isused" ColumnName="isused" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="class_code_tb">
+      <EntityTypeMapping TypeName="dbttcModel.class_code_tb">
+        <MappingFragment StoreEntitySet="class_code_tb">
+          <ScalarProperty Name="classcodeId" ColumnName="classcodeId" />
+          <ScalarProperty Name="classcode" ColumnName="classcode" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employeeUsers">
+      <EntityTypeMapping TypeName="dbttcModel.employeeUser">
+        <MappingFragment StoreEntitySet="employeeUser">
+          <ScalarProperty Name="empID" ColumnName="empID" />
+          <ScalarProperty Name="empName" ColumnName="empName" />
+          <ScalarProperty Name="empEmail" ColumnName="empEmail" />
+          <ScalarProperty Name="empPassword" ColumnName="empPassword" />
+          <ScalarProperty Name="APIAccess" ColumnName="APIAccess" />
+          <ScalarProperty Name="APIKey" ColumnName="APIKey" />
+          <ScalarProperty Name="grantAccess" ColumnName="grantAccess" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="report_a_bug">
+      <EntityTypeMapping TypeName="dbttcModel.report_a_bug">
+        <MappingFragment StoreEntitySet="report_a_bug">
+          <ScalarProperty Name="bugID" ColumnName="bugID" />
+          <ScalarProperty Name="clientemail" ColumnName="clientemail" />
+          <ScalarProperty Name="clientfullname" ColumnName="clientfullname" />
+          <ScalarProperty Name="bugCode" ColumnName="bugCode" />
+          <ScalarProperty Name="bugTitle" ColumnName="bugTitle" />
+          <ScalarProperty Name="bugDescription" ColumnName="bugDescription" />
+          <ScalarProperty Name="bugLocation" ColumnName="bugLocation" />
+          <ScalarProperty Name="bugAttachedFile" ColumnName="bugAttachedFile" />
+          <ScalarProperty Name="startfixschedule" ColumnName="startfixschedule" />
+          <ScalarProperty Name="endfixschedule" ColumnName="endfixschedule" />
+          <ScalarProperty Name="sendtodev" ColumnName="sendtodev" />
+          <ScalarProperty Name="devmaintenance" ColumnName="devmaintenance" />
+          <ScalarProperty Name="bugstatus" ColumnName="bugstatus" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Platform">
+      <EntityTypeMapping TypeName="dbttcModel.tb_Platform">
+        <MappingFragment StoreEntitySet="tb_Platform">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="access" ColumnName="access" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trainings">
+      <EntityTypeMapping TypeName="dbttcModel.training">
+        <MappingFragment StoreEntitySet="training">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="isonline" ColumnName="isonline" />
+          <ScalarProperty Name="trainingName" ColumnName="trainingName" />
+          <ScalarProperty Name="SD" ColumnName="SD" />
+          <ScalarProperty Name="FD" ColumnName="FD" />
+          <ScalarProperty Name="WYL" ColumnName="WYL" />
+          <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+          <ScalarProperty Name="isstatus" ColumnName="isstatus" />
+          <ScalarProperty Name="isforum" ColumnName="isforum" />
+          <ScalarProperty Name="islivechat" ColumnName="islivechat" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="ispayment" ColumnName="ispayment" />
+          <ScalarProperty Name="coursefee" ColumnName="coursefee" />
+          <ScalarProperty Name="effort" ColumnName="effort" />
+          <ScalarProperty Name="tLength" ColumnName="tLength" />
+          <ScalarProperty Name="categories" ColumnName="categories" />
+          <ScalarProperty Name="trainingStart" ColumnName="trainingStart" />
+          <ScalarProperty Name="trainingEnd" ColumnName="trainingEnd" />
+          <ScalarProperty Name="empAssignee" ColumnName="empAssignee" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="dbttcModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="municipality" ColumnName="municipality" />
+          <ScalarProperty Name="zip_code" ColumnName="zip_code" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="is_type" ColumnName="is_type" />
+          <ScalarProperty Name="is_activate" ColumnName="is_activate" />
+          <ScalarProperty Name="is_token_verified" ColumnName="is_token_verified" />
+          <ScalarProperty Name="is_archive" ColumnName="is_archive" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="contactnum" ColumnName="contactnum" />
+          <ScalarProperty Name="istoken" ColumnName="istoken" />
+          <ScalarProperty Name="isused" ColumnName="isused" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="update_session_handler" FunctionName="dbttcModel.Store.update_session_handler" />
+  </EntityContainerMapping>
+</Mapping>

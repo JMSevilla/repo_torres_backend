@@ -43,16 +43,16 @@ namespace TORRES_backend.Helpers
             {
                 var server = HttpContext.Current.Request;
                 
-                using(Connection._publicDB)
+                using(Connection._publiccloud)
                 {
                     bind.email = server.Form["email"];
                     bind.password = auth.Encrypt(server.Form["password"]);
                     bind._encrypted = string.Empty;
                     state.setObject(bind);
-                    var _self_1 = Connection._publicDB.adminusers.Any(x => x.email == state.signObj.email && x.is_verified != "0");
-                    var _self_2 = Connection._publicDB.adminusers.Where(x => x.email == state.signObj.email).FirstOrDefault();
-                    var _self_3 = Connection._publicDB.users.Any(x => x.email == state.signObj.email && x.is_archive != "1");
-                    var _self_4 = Connection._publicDB.users.Where(x => x.email == state.signObj.email).FirstOrDefault();
+                    var _self_1 = Connection._publiccloud.adminusers.Any(x => x.email == state.signObj.email && x.is_verified != "0");
+                    var _self_2 = Connection._publiccloud.adminusers.Where(x => x.email == state.signObj.email).FirstOrDefault();
+                    var _self_3 = Connection._publiccloud.users.Any(x => x.email == state.signObj.email && x.is_archive != "1");
+                    var _self_4 = Connection._publiccloud.users.Where(x => x.email == state.signObj.email).FirstOrDefault();
 
                     Validate(state.signObj.email, state.signObj.password);
 
@@ -65,7 +65,7 @@ namespace TORRES_backend.Helpers
                         if(desc.decryptRequest == desc.orig){
                             if(state.signObj.isstatus == "1"){
                                 if(state.signObj.istype == "1"){
-                                    var getdata = Connection._publicDB
+                                    var getdata = Connection._publiccloud
                                     .adminusers.Where(x => x.email == state.signObj.email).Select(t => new {
                                         t.adminID,
                                         t.firstname,
@@ -109,7 +109,7 @@ namespace TORRES_backend.Helpers
         
         class tokenAppend
         {
-            ttcdbEntities core = Connection._publicDB;
+            dbttcEntities core = Connection._publiccloud;
             BEWillResponse ESignResponse = new BEWillResponse();
             public void _shift_Token(string email, string token)
             {
@@ -225,7 +225,7 @@ namespace TORRES_backend.Helpers
 
         class Blocker
         {
-            ttcdbEntities __dbprocess = Connection._publicDB;
+            dbttcEntities __dbprocess = Connection._publiccloud;
             loginAppend log = new loginAppend();
             signinBindHelper bind = new signinBindHelper();
             public void getBlocker()
@@ -265,10 +265,10 @@ namespace TORRES_backend.Helpers
         {
             try
             {
-                using (Connection._publicDB)
+                using (Connection._publiccloud)
                 {
-                    Connection._publicDB.update_session_handler(email, 1);
-                    Connection._publicDB.SaveChanges();
+                    Connection._publiccloud.update_session_handler(email, 1);
+                    Connection._publiccloud.SaveChanges();
                     return Ok();
                 }
             }
