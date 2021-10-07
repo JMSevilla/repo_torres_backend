@@ -16,5 +16,14 @@ namespace TORRES_backend.APIConnection
                 return _APIDB;
             }
         }
+        private static dbttcEntities _clouddb;
+        public static dbttcEntities _publiccloud
+        {
+            get
+            {
+                _clouddb = new dbttcEntities();
+                return _clouddb;
+            }
+        }
     }
 }

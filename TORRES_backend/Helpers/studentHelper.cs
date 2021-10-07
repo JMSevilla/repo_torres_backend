@@ -89,10 +89,10 @@ namespace TORRES_backend.Helpers
         {
             try
             {
-                using (Connection._publicDB)
+                using (Connection._publiccloud)
                 {
-                    Connection._publicDB.users.Add(entityGet);
-                    Connection._publicDB.SaveChanges();
+                    Connection._publiccloud.users.Add(entityGet);
+                    Connection._publiccloud.SaveChanges();
                     studResp = "success";
                     return Ok(studResp);
                 }

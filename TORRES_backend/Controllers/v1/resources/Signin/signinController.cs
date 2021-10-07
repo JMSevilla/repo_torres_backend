@@ -17,7 +17,7 @@ namespace TORRES_backend.Controllers.Signin
     public class signinController : ApiController
     {
         credentialsHelper __helper = new credentialsHelper();
-        private torresfullstackdbEntities db = new torresfullstackdbEntities();
+        private dbttcEntities db = new dbttcEntities();
         APISecurity apis = new APISecurity();
         // GET: api/signin
         public IQueryable<adminuser> Getadminusers()

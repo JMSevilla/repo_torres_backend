@@ -267,3 +267,4 @@ C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\T
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.CopyComplete
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.dll
 C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.pdb
+C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\obj\Debug\TORRES_backend.csproj.AssemblyReference.cache

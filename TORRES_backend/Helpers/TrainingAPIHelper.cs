@@ -14,7 +14,7 @@ namespace TORRES_backend.Helpers
 {
     public class TrainingAPIHelper : ApiController, TrainingInterface
     {
-        private torresfullstackdbEntities db = new torresfullstackdbEntities();
+        dbttcEntities db = Connection._publiccloud;
         
        
         public static string message;

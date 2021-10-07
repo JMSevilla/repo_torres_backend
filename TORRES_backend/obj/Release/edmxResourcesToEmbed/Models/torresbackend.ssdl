@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="torresfullstackdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminusers">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar(max)" />
+    <Property Name="is_type" Type="char" MaxLength="1" />
+    <Property Name="is_verified" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="istoken" Type="varchar(max)" />
+    <Property Name="isused" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="class_code_tb">
+    <Key>
+      <PropertyRef Name="classcodeId" />
+    </Key>
+    <Property Name="classcodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classcode" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="is_lock" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="report_a_bug">
+    <Key>
+      <PropertyRef Name="bugID" />
+    </Key>
+    <Property Name="bugID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientemail" Type="varchar(max)" />
+    <Property Name="clientfullname" Type="varchar" MaxLength="255" />
+    <Property Name="bugCode" Type="varchar(max)" />
+    <Property Name="bugTitle" Type="varchar" MaxLength="255" />
+    <Property Name="bugDescription" Type="text" />
+    <Property Name="bugLocation" Type="varchar" MaxLength="255" />
+    <Property Name="bugAttachedFile" Type="varchar(max)" />
+    <Property Name="startfixschedule" Type="datetime" />
+    <Property Name="endfixschedule" Type="datetime" />
+    <Property Name="sendtodev" Type="char" MaxLength="1" />
+    <Property Name="devmaintenance" Type="char" MaxLength="1" />
+    <Property Name="bugstatus" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="training">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isonline" Type="char" MaxLength="1" />
+    <Property Name="trainingName" Type="varchar" MaxLength="100" />
+    <Property Name="SD" Type="varchar" MaxLength="100" />
+    <Property Name="FD" Type="varchar" MaxLength="255" />
+    <Property Name="WYL" Type="varchar" MaxLength="255" />
+    <Property Name="imageURL" Type="varchar(max)" />
+    <Property Name="isstatus" Type="char" MaxLength="1" />
+    <Property Name="isforum" Type="char" MaxLength="1" />
+    <Property Name="islivechat" Type="char" MaxLength="1" />
+    <Property Name="capacity" Type="int" />
+    <Property Name="ispayment" Type="char" MaxLength="1" />
+    <Property Name="coursefee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="effort" Type="varchar" MaxLength="100" />
+    <Property Name="tLength" Type="varchar" MaxLength="100" />
+    <Property Name="categories" Type="varchar" MaxLength="100" />
+    <Property Name="trainingStart" Type="datetime" />
+    <Property Name="trainingEnd" Type="datetime" />
+    <Property Name="empAssignee" Type="varchar" MaxLength="100" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="client_id" />
+    </Key>
+    <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="100" />
+    <Property Name="birthdate" Type="datetime" />
+    <Property Name="age" Type="int" />
+    <Property Name="gender" Type="char" MaxLength="1" />
+    <Property Name="province" Type="varchar" MaxLength="100" />
+    <Property Name="municipality" Type="varchar" MaxLength="100" />
+    <Property Name="zip_code" Type="varchar" MaxLength="100" />
+    <Property Name="address" Type="text" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="password" Type="varchar(max)" />
+    <Property Name="image_url" Type="varchar(max)" />
+    <Property Name="is_type" Type="char" MaxLength="1" />
+    <Property Name="is_activate" Type="char" MaxLength="1" />
+    <Property Name="is_token_verified" Type="char" MaxLength="1" />
+    <Property Name="is_archive" Type="char" MaxLength="1" />
+    <Property Name="createdAt" Type="datetime" />
+    <Property Name="contactnum" Type="varchar" MaxLength="100" />
+    <Property Name="istoken" Type="varchar(max)" />
+    <Property Name="isused" Type="char" MaxLength="1" />
+  </EntityType>
+  <Function Name="update_session_Blocker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="onaction" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="torresfullstackdbModelStoreContainer">
+    <EntitySet Name="adminusers" EntityType="Self.adminusers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -72,11 +72,11 @@ namespace TORRES_backend.Helpers.v2
         {
             try
             {
-                using (Connection._publicDB)
+                using (Connection._publiccloud)
                 {
                     data._empShift();
-                    Connection._publicDB.employeeUsers.Add(entityHelper);
-                    Connection._publicDB.SaveChanges();
+                    Connection._publiccloud.employeeUsers.Add(entityHelper);
+                    Connection._publiccloud.SaveChanges();
                     response = "success add employee";
                     return Ok(response);
                 }

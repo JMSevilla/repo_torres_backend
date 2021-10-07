@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -49,10 +50,10 @@
       <HintPath>..\packages\DotLiquid.2.2.548\lib\net45\DotLiquid.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -175,6 +176,7 @@
     <Compile Include="Controllers\v1\resources\Signin\signinController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\v2\Employee\employeeUsersController.cs" />
+    <Compile Include="Controllers\v2\Settings\AllSettingsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -189,22 +191,29 @@
     <Compile Include="Interfaces\CredentialsInterface.cs" />
     <Compile Include="Interfaces\employeeInterface.cs" />
     <Compile Include="Interfaces\reportBugInterface.cs" />
+    <Compile Include="Interfaces\Settings\SettingsInterface.cs" />
     <Compile Include="Interfaces\StudentInterface.cs" />
     <Compile Include="Interfaces\TrainingInterface.cs" />
     <Compile Include="Models\adminuser.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\apikeyStorage.cs">
+      <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\class_code_tb.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\credentialsauth.cs" />
     <Compile Include="Models\employeeUser.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\report_a_bug.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentClass.cs" />
+    <Compile Include="Models\tb_Platform.cs">
+      <DependentUpon>ttcCloud.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\torresbackend.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -236,10 +245,28 @@
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\training.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ttcCloud.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ttcCloud.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ttcCloud.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ttcCloud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ttcCloud.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>torresLocalDB.tt</DependentUpon>
+      <DependentUpon>ttcCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\views_apikey_list.cs">
+      <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_dataBind\trainingBindingInterface.cs" />
@@ -279,6 +306,16 @@
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
       <LastGenOutput>torresLocalDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ttcCloud.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ttcCloud.edmx</DependentUpon>
+      <LastGenOutput>ttcCloud.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ttcCloud.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ttcCloud.edmx</DependentUpon>
+      <LastGenOutput>ttcCloud.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -314,6 +351,14 @@
     <Content Include="Models\torresLocalDB.edmx.diagram">
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\ttcCloud.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ttcCloud.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ttcCloud.edmx.diagram">
+      <DependentUpon>ttcCloud.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\torresapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -337,6 +382,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="_dataBind\SettingsBind\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -403,7 +449,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
