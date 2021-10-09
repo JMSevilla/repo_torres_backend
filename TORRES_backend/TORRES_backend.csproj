@@ -169,6 +169,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ClassController.cs" />
     <Compile Include="Controllers\v1\resources\Administrator\adminusersController.cs" />
     <Compile Include="Controllers\BugReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,12 +183,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\adminRegisterHelper.cs" />
+    <Compile Include="Helpers\classHelper.cs" />
     <Compile Include="Helpers\credentialsHelper.cs" />
     <Compile Include="Helpers\reportbugHelper.cs" />
     <Compile Include="Helpers\studentHelper.cs" />
     <Compile Include="Helpers\TrainingAPIHelper.cs" />
     <Compile Include="Helpers\v2\employeeHelper.cs" />
     <Compile Include="Interfaces\AdminInterface.cs" />
+    <Compile Include="Interfaces\ClassInterface.cs" />
     <Compile Include="Interfaces\CredentialsInterface.cs" />
     <Compile Include="Interfaces\employeeInterface.cs" />
     <Compile Include="Interfaces\reportBugInterface.cs" />
@@ -195,22 +198,25 @@
     <Compile Include="Interfaces\StudentInterface.cs" />
     <Compile Include="Interfaces\TrainingInterface.cs" />
     <Compile Include="Models\adminuser.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\apikeyStorage.cs">
       <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\class_code_tb.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\credentialsauth.cs" />
     <Compile Include="Models\employeeUser.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\report_a_bug.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentClass.cs" />
+    <Compile Include="Models\TbClass.cs">
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tb_Platform.cs">
       <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
@@ -245,7 +251,7 @@
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\training.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ttcCloud.Context.cs">
       <AutoGen>True</AutoGen>
@@ -263,7 +269,7 @@
       <DependentUpon>ttcCloud.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torresLocalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\views_apikey_list.cs">
       <DependentUpon>ttcCloud.tt</DependentUpon>
@@ -271,6 +277,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_dataBind\trainingBindingInterface.cs" />
     <Compile Include="_dataBind\_bindHelper\adminBind.cs" />
+    <Compile Include="_dataBind\_bindHelper\classBind.cs" />
     <Compile Include="_dataBind\_bindHelper\employeeBind.cs" />
     <Compile Include="_dataBind\_bindHelper\reportBind.cs" />
     <Compile Include="_dataBind\_bindHelper\signinBindHelper.cs" />
@@ -382,6 +389,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Class\" />
     <Folder Include="_dataBind\SettingsBind\" />
   </ItemGroup>
   <ItemGroup>

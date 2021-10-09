@@ -57,6 +57,17 @@
     <Property Name="bugstatus" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
   </EntityType>
+  <EntityType Name="TbClass">
+    <Key>
+      <PropertyRef Name="classId" />
+    </Key>
+    <Property Name="classId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classname" Type="varchar" MaxLength="100" />
+    <Property Name="trainingUnder" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+    <Property Name="createdAt" Type="date" />
+  </EntityType>
   <EntityType Name="training">
     <Key>
       <PropertyRef Name="id" />
@@ -117,6 +128,7 @@
     <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="employeeUser" EntityType="Self.employeeUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TbClass" EntityType="Self.TbClass" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
