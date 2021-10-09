@@ -62,6 +62,17 @@
           <Property Name="bugstatus" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
         </EntityType>
+        <EntityType Name="TbClass">
+          <Key>
+            <PropertyRef Name="classId" />
+          </Key>
+          <Property Name="classId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="classname" Type="varchar" MaxLength="100" />
+          <Property Name="trainingUnder" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="createdAt" Type="date" />
+        </EntityType>
         <EntityType Name="training">
           <Key>
             <PropertyRef Name="id" />
@@ -122,6 +133,7 @@
           <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employeeUser" EntityType="Self.employeeUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TbClass" EntityType="Self.TbClass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="training" EntityType="Self.training" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -248,7 +260,19 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="actionState" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="TbClasses" EntityType="ttcdbModel.TbClass" />
         </EntityContainer>
+        <EntityType Name="TbClass">
+          <Key>
+            <PropertyRef Name="classId" />
+          </Key>
+          <Property Name="classId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="classname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="trainingUnder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -370,6 +394,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="update_session_handler" FunctionName="ttcdbModel.Store.update_session_handler" />
+          <EntitySetMapping Name="TbClasses">
+            <EntityTypeMapping TypeName="ttcdbModel.TbClass">
+              <MappingFragment StoreEntitySet="TbClass">
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="trainingUnder" ColumnName="trainingUnder" />
+                <ScalarProperty Name="classname" ColumnName="classname" />
+                <ScalarProperty Name="classId" ColumnName="classId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

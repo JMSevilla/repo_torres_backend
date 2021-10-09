@@ -119,5 +119,17 @@
       <Parameter Name="email" Mode="In" Type="String" />
       <Parameter Name="actionState" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="TbClasses" EntityType="ttcdbModel.TbClass" />
   </EntityContainer>
+  <EntityType Name="TbClass">
+    <Key>
+      <PropertyRef Name="classId" />
+    </Key>
+    <Property Name="classId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="classname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="trainingUnder" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

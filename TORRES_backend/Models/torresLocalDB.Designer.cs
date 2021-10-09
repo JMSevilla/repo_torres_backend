@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\devop\source\repos\torres_technology_corp_backend\repo_torres_backend\TORRES_backend\Models\torresLocalDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\JBFERNANDEZ\Source\Repos\repo_torres_backend\TORRES_backend\Models\torresLocalDB.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

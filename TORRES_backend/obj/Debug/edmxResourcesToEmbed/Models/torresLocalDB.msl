@@ -116,5 +116,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="update_session_handler" FunctionName="ttcdbModel.Store.update_session_handler" />
+    <EntitySetMapping Name="TbClasses">
+      <EntityTypeMapping TypeName="ttcdbModel.TbClass">
+        <MappingFragment StoreEntitySet="TbClass">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="trainingUnder" ColumnName="trainingUnder" />
+          <ScalarProperty Name="classname" ColumnName="classname" />
+          <ScalarProperty Name="classId" ColumnName="classId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

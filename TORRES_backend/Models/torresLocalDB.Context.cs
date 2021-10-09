@@ -33,6 +33,7 @@ namespace TORRES_backend.Models
         public virtual DbSet<report_a_bug> report_a_bug { get; set; }
         public virtual DbSet<training> trainings { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<TbClass> TbClasses { get; set; }
     
         public virtual int update_session_handler(string email, Nullable<int> actionState)
         {
