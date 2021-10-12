@@ -24,7 +24,7 @@ namespace TORRES_backend.Models
         public string bugAttachedFile { get; set; }
         public Nullable<System.DateTime> startfixschedule { get; set; }
         public Nullable<System.DateTime> endfixschedule { get; set; }
-        public string sendtodev { get; set; }
+        public string senttodev { get; set; }
         public string devmaintenance { get; set; }
         public string bugstatus { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }

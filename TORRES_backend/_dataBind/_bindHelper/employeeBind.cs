@@ -8,6 +8,7 @@ namespace TORRES_backend._dataBind._bindHelper
     public class employeeBind
     {
         public string empname { get; set; }
+        public string emplastname { get; set; }
         public string empemail { get; set; }
         public string emppassword { get; set; }
         public char apiaccess { get; set; }

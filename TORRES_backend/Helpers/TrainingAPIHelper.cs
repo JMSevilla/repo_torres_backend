@@ -14,7 +14,7 @@ namespace TORRES_backend.Helpers
 {
     public class TrainingAPIHelper : ApiController, TrainingInterface
     {
-        dbttcEntities db = Connection._publiccloud;
+        dbttcEntities1 db = Connection._Public_APIEntry;
         
        
         public static string message;
@@ -61,7 +61,7 @@ namespace TORRES_backend.Helpers
                     _entityTrain.isstatus = Convert.ToString(setval.trainingObj.isstatus);
                     _entityTrain.isforum = Convert.ToString(setval.trainingObj.isforum);
                     _entityTrain.islivechat = Convert.ToString(setval.trainingObj.islivechat);
-                    _entityTrain.capacity = setval.trainingObj.capacity;
+                    _entityTrain.capacity = Convert.ToString(setval.trainingObj.capacity);
                     _entityTrain.ispayment = Convert.ToString(setval.trainingObj.ispayment);
                     _entityTrain.coursefee = setval.trainingObj.coursefee;
                     _entityTrain.effort = setval.trainingObj.effort;

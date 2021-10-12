@@ -15,12 +15,10 @@ namespace TORRES_backend.Models
     public partial class employeeUser
     {
         public int empID { get; set; }
-        public string empName { get; set; }
-        public string empEmail { get; set; }
+        public string empFirstName { get; set; }
+        public string empLastName { get; set; }
         public string empPassword { get; set; }
-        public string APIAccess { get; set; }
-        public string APIKey { get; set; }
-        public string grantAccess { get; set; }
         public Nullable<System.DateTime> createdAt { get; set; }
+        public string empEmail { get; set; }
     }
 }

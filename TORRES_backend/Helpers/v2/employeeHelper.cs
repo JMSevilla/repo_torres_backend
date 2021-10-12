@@ -25,7 +25,8 @@ namespace TORRES_backend.Helpers.v2
             public void _empShift()
             {
                 var HTTP = HttpContext.Current.Request;
-                state.empname = HTTP.Form["empfullname"];
+                state.empname = HTTP.Form["empfirstname"];
+                state.emplastname = HTTP.Form["emplastname"];
                 state.empemail = HTTP.Form["empemail"];
                 state.emppassword = apis.Encrypt(HTTP.Form["emppassword"]);
                 state.apiaccess = Convert.ToChar(HTTP.Form["empapiaccesskey"]);
@@ -45,12 +46,10 @@ namespace TORRES_backend.Helpers.v2
                     getState.empBind.apikey,
                     getState.empBind.grantAccess
                     );
-                entityemp.empName = getState.empBind.empname;
-                entityemp.empEmail = getState.empBind.empemail;
+                entityemp.empFirstName = getState.empBind.empname;
+                entityemp.empLastName = getState.empBind.emplastname;
+                //entityemp.empEmail = getState.empBind.empemail;
                 entityemp.empPassword = getState.empBind.emppassword;
-                entityemp.APIAccess = Convert.ToString(getState.empBind.apiaccess);
-                entityemp.APIKey = getState.empBind.apikey;
-                entityemp.grantAccess = getState.empBind.grantAccess;
                 entityemp.createdAt = getState.empBind.createdAt;
                 entityHelper = entityemp;
             }
@@ -72,11 +71,11 @@ namespace TORRES_backend.Helpers.v2
         {
             try
             {
-                using (Connection._publiccloud)
+                using (Connection._Public_APIEntry)
                 {
                     data._empShift();
-                    Connection._publiccloud.employeeUsers.Add(entityHelper);
-                    Connection._publiccloud.SaveChanges();
+                    Connection._Public_APIEntry.employeeUsers.Add(entityHelper);
+                    Connection._Public_APIEntry.SaveChanges();
                     response = "success add employee";
                     return Ok(response);
                 }

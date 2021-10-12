@@ -17,9 +17,9 @@ namespace TORRES_backend.Helpers
         {
             public void _shift_checkAdmin()
             {
-                using (Connection._publiccloud)
+                using (Connection._Public_APIEntry)
                 {
-                    var checker = Connection._publiccloud.adminusers.Any(x => x.is_type == "1" && x.is_verified == "1");
+                    var checker = Connection._Public_APIEntry.adminusers.Any(x => x.is_type == "1" && x.is_verified == "1");
                     if (checker)
                     {
                         getDynamicAdmin = "exist";

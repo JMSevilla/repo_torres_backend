@@ -43,16 +43,16 @@ namespace TORRES_backend.Helpers
             {
                 var server = HttpContext.Current.Request;
                 
-                using(Connection._publiccloud)
+                using(Connection._Public_APIEntry)
                 {
                     bind.email = server.Form["email"];
                     bind.password = auth.Encrypt(server.Form["password"]);
                     bind._encrypted = string.Empty;
                     state.setObject(bind);
-                    var _self_1 = Connection._publiccloud.adminusers.Any(x => x.email == state.signObj.email && x.is_verified != "0");
-                    var _self_2 = Connection._publiccloud.adminusers.Where(x => x.email == state.signObj.email).FirstOrDefault();
-                    var _self_3 = Connection._publiccloud.users.Any(x => x.email == state.signObj.email && x.is_archive != "1");
-                    var _self_4 = Connection._publiccloud.users.Where(x => x.email == state.signObj.email).FirstOrDefault();
+                    var _self_1 = Connection._Public_APIEntry.adminusers.Any(x => x.email == state.signObj.email && x.is_verified != "0");
+                    var _self_2 = Connection._Public_APIEntry.adminusers.Where(x => x.email == state.signObj.email).FirstOrDefault();
+                    var _self_3 = Connection._Public_APIEntry.users.Any(x => x.email == state.signObj.email && x.is_archive != "1");
+                    var _self_4 = Connection._Public_APIEntry.users.Where(x => x.email == state.signObj.email).FirstOrDefault();
 
                     Validate(state.signObj.email, state.signObj.password);
 
@@ -65,7 +65,7 @@ namespace TORRES_backend.Helpers
                         if(desc.decryptRequest == desc.orig){
                             if(state.signObj.isstatus == "1"){
                                 if(state.signObj.istype == "1"){
-                                    var getdata = Connection._publiccloud
+                                    var getdata = Connection._Public_APIEntry
                                     .adminusers.Where(x => x.email == state.signObj.email).Select(t => new {
                                         t.adminID,
                                         t.firstname,
@@ -109,7 +109,7 @@ namespace TORRES_backend.Helpers
         
         class tokenAppend
         {
-            dbttcEntities core = Connection._publiccloud;
+            dbttcEntities1 core = Connection._Public_APIEntry;
             BEWillResponse ESignResponse = new BEWillResponse();
             public void _shift_Token(string email, string token)
             {
@@ -225,7 +225,7 @@ namespace TORRES_backend.Helpers
 
         class Blocker
         {
-            dbttcEntities __dbprocess = Connection._publiccloud;
+            dbttcEntities1 __dbprocess = Connection._Public_APIEntry;
             loginAppend log = new loginAppend();
             signinBindHelper bind = new signinBindHelper();
             public void getBlocker()
@@ -260,23 +260,27 @@ namespace TORRES_backend.Helpers
             Blocker block = new Blocker();
             block.getBlocker();
         }
-
+        /*
+         10/12/2021 - JM
+        kindly uncomment this code once you have update_session_handler Stored proc. thanks
+         */
         public IHttpActionResult SessionWillUpdate(string email)
         {
-            try
-            {
-                using (Connection._publiccloud)
-                {
-                    Connection._publiccloud.update_session_handler(email, 1);
-                    Connection._publiccloud.SaveChanges();
-                    return Ok();
-                }
-            }
-            catch (Exception)
-            {
+            return Ok();
+            //try
+            //{
+            //    using (Connection._Public_APIEntry)
+            //    {
+            //        Connection._Public_APIEntry.update_session_handler(email, 1);
+            //        Connection._Public_APIEntry.SaveChanges();
+            //        return Ok();
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
         }
     }
 }

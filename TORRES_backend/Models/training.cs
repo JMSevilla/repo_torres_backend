@@ -24,7 +24,7 @@ namespace TORRES_backend.Models
         public string isstatus { get; set; }
         public string isforum { get; set; }
         public string islivechat { get; set; }
-        public Nullable<int> capacity { get; set; }
+        public string capacity { get; set; }
         public string ispayment { get; set; }
         public Nullable<decimal> coursefee { get; set; }
         public string effort { get; set; }

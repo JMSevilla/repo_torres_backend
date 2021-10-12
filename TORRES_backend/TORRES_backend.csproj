@@ -195,20 +195,20 @@
     <Compile Include="Interfaces\StudentInterface.cs" />
     <Compile Include="Interfaces\TrainingInterface.cs" />
     <Compile Include="Models\adminuser.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\apikeyStorage.cs">
       <DependentUpon>ttcCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\class_code_tb.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\credentialsauth.cs" />
     <Compile Include="Models\employeeUser.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\report_a_bug.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentClass.cs" />
     <Compile Include="Models\tb_Platform.cs">
@@ -244,8 +244,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\torres_local_database_v1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torres_local_database_v1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\torres_local_database_v1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\torres_local_database_v1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>torres_local_database_v1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\training.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ttcCloud.Context.cs">
       <AutoGen>True</AutoGen>
@@ -263,7 +278,7 @@
       <DependentUpon>ttcCloud.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>ttcCloud.tt</DependentUpon>
+      <DependentUpon>torres_local_database_v1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\views_apikey_list.cs">
       <DependentUpon>ttcCloud.tt</DependentUpon>
@@ -305,6 +320,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>torresLocalDB.edmx</DependentUpon>
       <LastGenOutput>torresLocalDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\torres_local_database_v1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>torres_local_database_v1.edmx</DependentUpon>
+      <LastGenOutput>torres_local_database_v1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\torres_local_database_v1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>torres_local_database_v1.edmx</DependentUpon>
+      <LastGenOutput>torres_local_database_v1.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ttcCloud.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -357,6 +382,13 @@
     </EntityDeploy>
     <Content Include="Models\ttcCloud.edmx.diagram">
       <DependentUpon>ttcCloud.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\torres_local_database_v1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>torres_local_database_v1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\torres_local_database_v1.edmx.diagram">
+      <DependentUpon>torres_local_database_v1.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\torresapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

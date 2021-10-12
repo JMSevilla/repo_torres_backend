@@ -61,7 +61,7 @@ namespace TORRES_backend.Helpers
                 usr.contactnum = getState.__bind.contactnum;
                 usr.province = getState.__bind.province;
                 usr.municipality = getState.__bind.municipality;
-                usr.zip_code = getState.__bind.zip_code;
+                //usr.zip_code = getState.__bind.zip_code;
                 usr.address = getState.__bind.address;
                 usr.email = getState.__bind.email;
                 usr.password = getState.__bind.password;
@@ -89,10 +89,10 @@ namespace TORRES_backend.Helpers
         {
             try
             {
-                using (Connection._publiccloud)
+                using (Connection._Public_APIEntry)
                 {
-                    Connection._publiccloud.users.Add(entityGet);
-                    Connection._publiccloud.SaveChanges();
+                    Connection._Public_APIEntry.users.Add(entityGet);
+                    Connection._Public_APIEntry.SaveChanges();
                     studResp = "success";
                     return Ok(studResp);
                 }

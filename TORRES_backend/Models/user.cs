@@ -22,7 +22,7 @@ namespace TORRES_backend.Models
         public string gender { get; set; }
         public string province { get; set; }
         public string municipality { get; set; }
-        public string zip_code { get; set; }
+        public string zipcode { get; set; }
         public string address { get; set; }
         public string email { get; set; }
         public string password { get; set; }
