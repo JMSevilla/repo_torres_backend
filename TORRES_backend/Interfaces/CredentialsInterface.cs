@@ -13,5 +13,7 @@ namespace TORRES_backend.Interfaces
     {
         void loginInterface();
         void tokenInterface(string email, string token);
+        void tokenDestroyInterface(string email);
+        void scanTokenInterface(string token, string email);
     }
 }

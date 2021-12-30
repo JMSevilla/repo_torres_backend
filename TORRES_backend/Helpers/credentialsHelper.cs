@@ -19,6 +19,8 @@ namespace TORRES_backend.Helpers
 
 
         public static dynamic getSigninResponse;
+        public static Boolean doneLogout;
+        
         public class BEWillResponse
         {
             public String status { get; set; }
@@ -112,21 +114,21 @@ namespace TORRES_backend.Helpers
 
         class tokenAppend
         {
-           
+            torresfullstackdbEntities core = Connection._publicDB;
             BEWillResponse ESignResponse = new BEWillResponse();
             public void _shift_Token(string email, string token)
             {
                 try
                 {
-                    using (Connection._publicDB)
+                    using (core)
                     {
-                        var check = Connection._publicDB.adminusers.Where(x => x.email == email).FirstOrDefault();
+                        var check = core.adminusers.Where(x => x.email == email).FirstOrDefault();
                         if(check != null)
                         {
                             check.istoken = token;
-                            Connection._publicDB.SaveChanges();
+                            core.SaveChanges();
                             ESignResponse.status = "update token admin";
-                            ESignResponse.databulk = Connection._publicDB.adminusers
+                            ESignResponse.databulk = core.adminusers
                                 .Where(y => y.email == email).Select(t => new
                                 {
                                     t.istoken
@@ -142,8 +144,61 @@ namespace TORRES_backend.Helpers
                     throw;
                 }
             }
+            public void destroyToken(string email)
+            {
+                try
+                {
+                    using(core)
+                    {
+                        var check = core.adminusers.Where(x => x.email == email).FirstOrDefault();
+                        if (check != null)
+                        {
+                            check.istoken = "";
+                            core.SaveChanges();
+                            doneLogout = true;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            public void checkToken(string token, string email)
+            {
+                try
+                {
+                    using (core)
+                    {
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            void tokenValidationWillCheck(string token, string email)
+            {
+                if(string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email)){
+                    ESignResponse.status = "empty";
+                }
+            }
         }
+        tokenAppend t = new tokenAppend();
         public void tokenInterface(string email, string token)
+        {
+            t._shift_Token(email, token);
+        }
+
+        public void tokenDestroyInterface(string email)
+        {
+            t.destroyToken(email);
+        }
+
+        public void scanTokenInterface(string token, string email)
         {
             throw new NotImplementedException();
         }
