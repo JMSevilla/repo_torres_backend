@@ -109,7 +109,7 @@ namespace TORRES_backend.Helpers
         
         class tokenAppend
         {
-            dbttcEntities core = Connection._publiccloud;
+            dbtorresEntities core = Connection._publiccloud;
             BEWillResponse ESignResponse = new BEWillResponse();
             public void _shift_Token(string email, string token)
             {
@@ -225,7 +225,7 @@ namespace TORRES_backend.Helpers
 
         class Blocker
         {
-            dbttcEntities __dbprocess = Connection._publiccloud;
+            dbtorresEntities __dbprocess = Connection._publiccloud;
             loginAppend log = new loginAppend();
             signinBindHelper bind = new signinBindHelper();
             public void getBlocker()

@@ -15,7 +15,7 @@ namespace TORRES_backend.Helpers
     {
         public static dynamic reportPool;
         public static string Reportmessage;
-        dbttcEntities core = Connection._publiccloud;
+        dbtorresEntities core = Connection._publiccloud;
         class bugreportAppend
         {
             reportBind report = new reportBind();
@@ -50,7 +50,7 @@ namespace TORRES_backend.Helpers
                     reps.bugTitle = setval.reportObj.bugTitle;
                     reps.bugDescription = setval.reportObj.bugdescription;
                     reps.bugLocation = setval.reportObj.bugLocation;
-                    reps.bugAttachedFile = setval.reportObj.bugAttachedFile;
+                    reps.bugAttachFile = setval.reportObj.bugAttachedFile;
                     reps.startfixschedule = setval.reportObj.startfixschedule;
                     reps.endfixschedule = setval.reportObj.endfixschedule;
                     reps.sendtodev = Convert.ToString(setval.reportObj.sendtodev);

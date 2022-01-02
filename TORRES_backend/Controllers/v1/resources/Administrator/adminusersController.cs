@@ -17,7 +17,7 @@ namespace TORRES_backend.Controllers
     [RoutePrefix("api/v1/resources/administrator")]
     public class adminusersController : ApiController
     {
-        private dbttcEntities db = new dbttcEntities();
+        private dbtorresEntities db = new dbtorresEntities();
         adminRegisterHelper regdev = new adminRegisterHelper();
 
         // GET: api/adminusers

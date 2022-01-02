@@ -15,7 +15,7 @@ namespace TORRES_backend.Controllers.v2.Settings
     [RoutePrefix("api/settings")]
     public class AllSettingsController : ApiController
     {
-        dbttcEntities core = Connection._publiccloud;
+        dbtorresEntities core = Connection._publiccloud;
         [Route("add-api-key/{apikey}/key"), HttpPost]
         public IHttpActionResult setApi(string apikey)
         {
@@ -66,7 +66,7 @@ namespace TORRES_backend.Controllers.v2.Settings
                 IHttpActionResult result = null;
                 using (core)
                 {
-                    var obj = core.views_apikey_list.ToList();
+                    var obj = core.view_apikey_list.ToList();
                     result = Ok(obj);
                     return await Task.FromResult(result);
                 }

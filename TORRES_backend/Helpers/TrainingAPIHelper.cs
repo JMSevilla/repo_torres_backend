@@ -14,7 +14,7 @@ namespace TORRES_backend.Helpers
 {
     public class TrainingAPIHelper : ApiController, TrainingInterface
     {
-        dbttcEntities db = Connection._publiccloud;
+        dbtorresEntities db = Connection._publiccloud;
         
        
         public static string message;
