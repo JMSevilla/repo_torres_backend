@@ -35,6 +35,16 @@
     <Property Name="is_lock" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
   </EntityType>
+  <EntityType Name="dynamicFooter">
+    <Key>
+      <PropertyRef Name="footerID" />
+    </Key>
+    <Property Name="footerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="footerDescription" Type="text" />
+    <Property Name="Links" Type="varchar(max)" />
+    <Property Name="footerAddress" Type="text" />
+    <Property Name="createdAt" Type="datetime" />
+  </EntityType>
   <EntityType Name="employeeUser">
     <Key>
       <PropertyRef Name="empID" />
@@ -47,6 +57,23 @@
     <Property Name="APIKey" Type="varchar(max)" />
     <Property Name="grantAccess" Type="char" MaxLength="1" />
     <Property Name="createdAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="navbar_identifier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="navbarIdentifier" Type="int" />
+    <Property Name="navbarDesignIdentifier" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="navbar_identifier_UI">
+    <Key>
+      <PropertyRef Name="navbarID" />
+    </Key>
+    <Property Name="navbarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="navbarImage" Type="varchar(max)" />
+    <Property Name="navbarRoute" Type="varchar" MaxLength="255" />
+    <Property Name="navbarIdentifier" Type="int" />
   </EntityType>
   <EntityType Name="report_a_bug">
     <Key>
@@ -157,7 +184,10 @@
     <EntitySet Name="adminuser" EntityType="Self.adminuser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="apikeyStorage" EntityType="Self.apikeyStorage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dynamicFooter" EntityType="Self.dynamicFooter" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="employeeUser" EntityType="Self.employeeUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="navbar_identifier" EntityType="Self.navbar_identifier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="navbar_identifier_UI" EntityType="Self.navbar_identifier_UI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Platform" EntityType="Self.tb_Platform" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TbClass" EntityType="Self.TbClass" Schema="dbo" store:Type="Tables" />
