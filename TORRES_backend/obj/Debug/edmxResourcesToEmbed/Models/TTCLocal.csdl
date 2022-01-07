@@ -109,6 +109,9 @@
     <EntitySet Name="apikeyStorages" EntityType="dbtorresModel.apikeyStorage" />
     <EntitySet Name="tb_Platform" EntityType="dbtorresModel.tb_Platform" />
     <EntitySet Name="view_apikey_list" EntityType="dbtorresModel.view_apikey_list" />
+    <EntitySet Name="dynamicFooters" EntityType="dbtorresModel.dynamicFooter" />
+    <EntitySet Name="navbar_identifier" EntityType="dbtorresModel.navbar_identifier" />
+    <EntitySet Name="navbar_identifier_UI" EntityType="dbtorresModel.navbar_identifier_UI" />
   </EntityContainer>
   <EntityType Name="training">
     <Key>
@@ -164,5 +167,32 @@
     <Property Name="apiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="apiKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="dynamicFooter">
+    <Key>
+      <PropertyRef Name="footerID" />
+    </Key>
+    <Property Name="footerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="footerDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Links" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="footerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="navbar_identifier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="navbarIdentifier" Type="Int32" />
+    <Property Name="navbarDesignIdentifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="navbar_identifier_UI">
+    <Key>
+      <PropertyRef Name="navbarID" />
+    </Key>
+    <Property Name="navbarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="navbarImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="navbarRoute" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="navbarIdentifier" Type="Int32" />
   </EntityType>
 </Schema>

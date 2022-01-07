@@ -40,6 +40,16 @@
           <Property Name="is_lock" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
         </EntityType>
+        <EntityType Name="dynamicFooter">
+          <Key>
+            <PropertyRef Name="footerID" />
+          </Key>
+          <Property Name="footerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="footerDescription" Type="text" />
+          <Property Name="Links" Type="varchar(max)" />
+          <Property Name="footerAddress" Type="text" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
         <EntityType Name="employeeUser">
           <Key>
             <PropertyRef Name="empID" />
@@ -52,6 +62,23 @@
           <Property Name="APIKey" Type="varchar(max)" />
           <Property Name="grantAccess" Type="char" MaxLength="1" />
           <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="navbar_identifier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="navbarIdentifier" Type="int" />
+          <Property Name="navbarDesignIdentifier" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="navbar_identifier_UI">
+          <Key>
+            <PropertyRef Name="navbarID" />
+          </Key>
+          <Property Name="navbarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="navbarImage" Type="varchar(max)" />
+          <Property Name="navbarRoute" Type="varchar" MaxLength="255" />
+          <Property Name="navbarIdentifier" Type="int" />
         </EntityType>
         <EntityType Name="report_a_bug">
           <Key>
@@ -162,7 +189,10 @@
           <EntitySet Name="adminuser" EntityType="Self.adminuser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="apikeyStorage" EntityType="Self.apikeyStorage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="class_code_tb" EntityType="Self.class_code_tb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dynamicFooter" EntityType="Self.dynamicFooter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="employeeUser" EntityType="Self.employeeUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="navbar_identifier" EntityType="Self.navbar_identifier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="navbar_identifier_UI" EntityType="Self.navbar_identifier_UI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="report_a_bug" EntityType="Self.report_a_bug" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Platform" EntityType="Self.tb_Platform" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TbClass" EntityType="Self.TbClass" Schema="dbo" store:Type="Tables" />
@@ -283,6 +313,9 @@
           <EntitySet Name="apikeyStorages" EntityType="dbtorresModel.apikeyStorage" />
           <EntitySet Name="tb_Platform" EntityType="dbtorresModel.tb_Platform" />
           <EntitySet Name="view_apikey_list" EntityType="dbtorresModel.view_apikey_list" />
+          <EntitySet Name="dynamicFooters" EntityType="dbtorresModel.dynamicFooter" />
+          <EntitySet Name="navbar_identifier" EntityType="dbtorresModel.navbar_identifier" />
+          <EntitySet Name="navbar_identifier_UI" EntityType="dbtorresModel.navbar_identifier_UI" />
         </EntityContainer>
         <EntityType Name="training">
           <Key>
@@ -338,6 +371,33 @@
           <Property Name="apiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="apiKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="isused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="dynamicFooter">
+          <Key>
+            <PropertyRef Name="footerID" />
+          </Key>
+          <Property Name="footerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="footerDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Links" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="footerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="navbar_identifier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="navbarIdentifier" Type="Int32" />
+          <Property Name="navbarDesignIdentifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="navbar_identifier_UI">
+          <Key>
+            <PropertyRef Name="navbarID" />
+          </Key>
+          <Property Name="navbarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="navbarImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="navbarRoute" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="navbarIdentifier" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -502,6 +562,36 @@
                 <ScalarProperty Name="isused" ColumnName="isused" />
                 <ScalarProperty Name="apiKey" ColumnName="apiKey" />
                 <ScalarProperty Name="apiID" ColumnName="apiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dynamicFooters">
+            <EntityTypeMapping TypeName="dbtorresModel.dynamicFooter">
+              <MappingFragment StoreEntitySet="dynamicFooter">
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="footerAddress" ColumnName="footerAddress" />
+                <ScalarProperty Name="Links" ColumnName="Links" />
+                <ScalarProperty Name="footerDescription" ColumnName="footerDescription" />
+                <ScalarProperty Name="footerID" ColumnName="footerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="navbar_identifier">
+            <EntityTypeMapping TypeName="dbtorresModel.navbar_identifier">
+              <MappingFragment StoreEntitySet="navbar_identifier">
+                <ScalarProperty Name="navbarDesignIdentifier" ColumnName="navbarDesignIdentifier" />
+                <ScalarProperty Name="navbarIdentifier" ColumnName="navbarIdentifier" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="navbar_identifier_UI">
+            <EntityTypeMapping TypeName="dbtorresModel.navbar_identifier_UI">
+              <MappingFragment StoreEntitySet="navbar_identifier_UI">
+                <ScalarProperty Name="navbarIdentifier" ColumnName="navbarIdentifier" />
+                <ScalarProperty Name="navbarRoute" ColumnName="navbarRoute" />
+                <ScalarProperty Name="navbarImage" ColumnName="navbarImage" />
+                <ScalarProperty Name="navbarID" ColumnName="navbarID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

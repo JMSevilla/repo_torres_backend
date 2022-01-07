@@ -81,10 +81,10 @@ namespace TORRES_backend.Helpers.v2
                     return Ok(response);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return BadRequest(ex.Message);
             }
         }
     }

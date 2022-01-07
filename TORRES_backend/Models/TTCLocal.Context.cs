@@ -37,6 +37,9 @@ namespace TORRES_backend.Models
         public virtual DbSet<apikeyStorage> apikeyStorages { get; set; }
         public virtual DbSet<tb_Platform> tb_Platform { get; set; }
         public virtual DbSet<view_apikey_list> view_apikey_list { get; set; }
+        public virtual DbSet<dynamicFooter> dynamicFooters { get; set; }
+        public virtual DbSet<navbar_identifier> navbar_identifier { get; set; }
+        public virtual DbSet<navbar_identifier_UI> navbar_identifier_UI { get; set; }
     
         public virtual int update_session_handler(string email, Nullable<int> onaction)
         {

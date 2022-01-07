@@ -161,5 +161,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="dynamicFooters">
+      <EntityTypeMapping TypeName="dbtorresModel.dynamicFooter">
+        <MappingFragment StoreEntitySet="dynamicFooter">
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="footerAddress" ColumnName="footerAddress" />
+          <ScalarProperty Name="Links" ColumnName="Links" />
+          <ScalarProperty Name="footerDescription" ColumnName="footerDescription" />
+          <ScalarProperty Name="footerID" ColumnName="footerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="navbar_identifier">
+      <EntityTypeMapping TypeName="dbtorresModel.navbar_identifier">
+        <MappingFragment StoreEntitySet="navbar_identifier">
+          <ScalarProperty Name="navbarDesignIdentifier" ColumnName="navbarDesignIdentifier" />
+          <ScalarProperty Name="navbarIdentifier" ColumnName="navbarIdentifier" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="navbar_identifier_UI">
+      <EntityTypeMapping TypeName="dbtorresModel.navbar_identifier_UI">
+        <MappingFragment StoreEntitySet="navbar_identifier_UI">
+          <ScalarProperty Name="navbarIdentifier" ColumnName="navbarIdentifier" />
+          <ScalarProperty Name="navbarRoute" ColumnName="navbarRoute" />
+          <ScalarProperty Name="navbarImage" ColumnName="navbarImage" />
+          <ScalarProperty Name="navbarID" ColumnName="navbarID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
